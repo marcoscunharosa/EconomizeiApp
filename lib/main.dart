@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'screens/create_your_meals/create_your_meals.dart';
+import 'screens/quiz/quiz_amount_people.dart';
+import 'screens/quiz/quiz_meals_like.dart';
+import 'service/user_service.dart';
 
 void main() {
+  var userService = UserService.getInstance();
+  userService!.createUser(
+      username: "Batatinha Colorida", email: "batatinhacolorida@gmail.com");
+  // Pegar usuário: UserService.getInstance().userAccount
   runApp(const MyApp());
 }
 
@@ -12,16 +19,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const CreateYourMeals(),
-      }
-    );
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const CreateYourMeals(),
+          '/quiz': (context) => const QuizAmountPeople(),
+        });
   }
 }
-
-
