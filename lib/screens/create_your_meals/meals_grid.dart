@@ -46,7 +46,7 @@ class _MealsGridState extends State<MealsGrid> {
       child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 3 / 2,
+              childAspectRatio: 1,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20),
           padding: const EdgeInsets.all(20),
