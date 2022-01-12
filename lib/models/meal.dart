@@ -3,7 +3,7 @@
 import './meal_type.dart';
 class Meal {
   MealType type;
-  String timetable;
+  DateTime timetable;
   String name;
 
   Meal({

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
 import '../models/meal_type.dart';
+import 'package:intl/intl.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
@@ -37,6 +38,7 @@ class MealItem extends StatelessWidget {
       child: meal.type != MealType.addButton
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 12),
@@ -54,7 +56,7 @@ class MealItem extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.only(top: 5),
                   child: Text(
-                    meal.timetable,
+                    DateFormat('HH:mm').format(meal.timetable),
                     style: TextStyle(
                       color: meal.type.color['secondary'],
                       fontSize: 16,

@@ -17,25 +17,35 @@ class _MealsGridState extends State<MealsGrid> {
   
 
   List<Meal> meals = [
-    Meal(name: "Café da Manhã", type: MealType.breakfast, timetable: "08:00"),
-    Meal(name: "Adicionar", type: MealType.addButton, timetable: "none")
+    Meal(name: "Café da Manhã", type: MealType.breakfast, timetable: DateTime.parse("2019-11-20 08:00:00")),
+    Meal(name: "Adicionar", type: MealType.addButton, timetable: DateTime.parse("2019-11-21 00:00:00"))
   ];
 
+  void deleteMeal(meal){
+    setState(() {
+      meals.remove(meal);
+    });
+  }
   void addNewMeal(meal){
     var index = meals.length - 1;
 
     setState(() {
-      meals.insert(index, meal);
+      if(!meals.contains(meal)){
+        meals.insert(index, meal);
+        meals.sort((a, b) {
+          return a.timetable.compareTo(b.timetable);
+        });
+      }
     });
   }
-  void showNewMealDialog() async {
+  void showNewMealDialog(bool isEditting, Meal? meal) async {
     return showDialog(
         context: context,
 
         builder: (BuildContext context) {
           return AlertDialog(
             contentPadding: const EdgeInsets.all(0),
-            content: NewMealDialog(isEditting: false, addNewMeal: addNewMeal),
+            content: NewMealDialog(isEditting: isEditting, addNewMeal: addNewMeal, meal: meal, removeMeal: deleteMeal)
           );
         });
   }
@@ -46,7 +56,7 @@ class _MealsGridState extends State<MealsGrid> {
       child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 3 / 2,
+              childAspectRatio: 1,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20),
           padding: const EdgeInsets.all(20),
@@ -55,7 +65,10 @@ class _MealsGridState extends State<MealsGrid> {
             return GestureDetector(
                 onTap: () {
                   if (meals[index].type == MealType.addButton) {
-                    showNewMealDialog();
+                    showNewMealDialog(false, null);
+                  }
+                  else{
+                    showNewMealDialog(true, meals[index]);
                   }
                 },
                 child: MealItem(meal: meals[index]));
