@@ -18,25 +18,6 @@ class UserService {
       question: "Para quantas pessoas você está planejando este cardápio?",
       answer: [0],
     ),
-    QuizClass(
-      icon: Icons.people_alt_rounded,
-      color: {
-        'primary': const Color(0xFFEE0F55),
-        'secondary': const Color(0xFFCF8F8F)
-      },
-      question: "O que você(s) não gosta(m) de comer?",
-      answer: [""],
-    ),
-    QuizClass(
-      icon: Icons.people_alt_rounded,
-      color: {
-        'primary': const Color(0xFFEE0F55),
-        'secondary': const Color(0xFFCF8F8F)
-      },
-      question:
-          "Selecione todos os dias para os quais você gostaria de gerar um cardápio:",
-      answer: [""],
-    ),
   ];
 
   static UserService? getInstance() {
@@ -61,25 +42,56 @@ class UserService {
 
   void createUserMeals({required List<Meal> meals}) {
     List<Meal> filterMeals = [];
+
+    if (questions.length > 1) {
+      questions.removeRange(1, questions.length);
+    }
+
     for (var i = 0; i < meals.length; i++) {
       if (meals[i].type != MealType.addButton) {
         filterMeals.add(meals[i]);
-        createQuestion(meals[i]);
+        createQuestionMeal(meals[i]);
       }
     }
     userAccount?.setMeals(filterMeals);
+    addOtherQuestions();
 
     for (var i = 0; i < filterMeals.length; i++) {
       print(userAccount?.preferences.meals[i].name);
     }
+    for (var i = 0; i < questions.length; i++) {
+      print(questions[i].question);
+    }
   }
 
-  void createQuestion(Meal meal) {
+  void createQuestionMeal(Meal meal) {
     questions.add(QuizClass(
       icon: meal.type.icon,
       color: meal.type.color,
-      question: "O que você(s) costuma(m) comer na refeição ${meal.name}",
+      question: "O que você(s) costuma(m) comer na refeição ${meal.name}?",
       answer: [0],
+    ));
+  }
+
+  void addOtherQuestions() {
+    questions.add(QuizClass(
+      icon: Icons.people_alt_rounded,
+      color: {
+        'primary': const Color(0xFFEE0F55),
+        'secondary': const Color(0xFFCF8F8F)
+      },
+      question: "O que você(s) não gosta(m) de comer?",
+      answer: [""],
+    ));
+    questions.add(QuizClass(
+      icon: Icons.people_alt_rounded,
+      color: {
+        'primary': const Color(0xFFEE0F55),
+        'secondary': const Color(0xFFCF8F8F)
+      },
+      question:
+          "Selecione todos os dias para os quais você gostaria de gerar um cardápio:",
+      answer: [""],
     ));
   }
 }
