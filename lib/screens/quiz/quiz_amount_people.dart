@@ -1,3 +1,4 @@
+import 'package:economizei_app/widgets/quiz_bottom_bar_custom.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/services.dart';
@@ -92,102 +93,8 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        color: Color(0xFFF1F1F1),
-        padding: EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: Color(0xFFEE0F55),
-                  ),
-                  Text(
-                    "Voltar",
-                    style: TextStyle(color: Color(0xFFEE0F55)),
-                  ),
-                ],
-              ),
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.circle,
-                  size: 10,
-                  color: Color(0xFFEE0F55),
-                ),
-                Icon(
-                  Icons.circle,
-                  size: 10,
-                  color: Color(0xFF959595),
-                ),
-                Icon(
-                  Icons.circle,
-                  size: 10,
-                  color: Color(0xFF959595),
-                ),
-              ],
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  EnterExitRoute(exitPage: widget, enterPage: QuizMealsLike()),
-                );
-              },
-              child: Container(
-                child: Row(
-                  children: [
-                    Text(
-                      "Continuar",
-                      style: TextStyle(color: Color(0xFFEE0F55)),
-                    ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      color: Color(0xFFEE0F55),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-      /*BottomNavigationBar(
-          currentIndex: 2,
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.arrow_back_ios),
-              label: "Voltar",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.circle),
-              label: "",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.circle),
-              label: "",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.circle),
-              label: "",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.circle),
-              label: "",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.arrow_forward_ios),
-              label: "Continuar",
-            ),
-          ],
-        ),*/
+      bottomNavigationBar: QuizBottomBarCustom(
+          context: context, widget: widget, newWidget: QuizMealsLike()),
     );
   }
 }
