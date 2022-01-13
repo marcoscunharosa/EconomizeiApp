@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter/services.dart';
+import '../../widgets/app_bar_custom.dart';
 
 class QuizMealsLike extends StatefulWidget {
   const QuizMealsLike({Key? key}) : super(key: key);
@@ -24,21 +26,7 @@ class _QuizMealsLikeState extends State<QuizMealsLike> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        toolbarHeight: 72,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text(
-              "Questionário",
-              style: TextStyle(color: Color(0xFFEE0F55)),
-            ),
-            Icon(Icons.dehaze, color: Color(0xFFEE0F55)),
-          ],
-        ),
-      ),
+      appBar: AppBarCustom("Crie suas refeições"),
       body: SizedBox(
         width: double.infinity,
         child: Card(
