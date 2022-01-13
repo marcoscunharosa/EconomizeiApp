@@ -6,6 +6,8 @@ import '../models/meal.dart';
 
 import '../models/meal.dart';
 
+import '../models/meal.dart';
+
 class Account {
   String username;
   String email;
