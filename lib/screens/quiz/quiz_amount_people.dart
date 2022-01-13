@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import './quiz_meals_like.dart';
 import '../../widgets/enter_exit_route.dart';
+import '../../widgets/app_bar_custom.dart';
 
 class QuizAmountPeople extends StatefulWidget {
   const QuizAmountPeople({Key? key}) : super(key: key);
@@ -26,21 +27,7 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        toolbarHeight: 72,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text(
-              "Questionário",
-              style: TextStyle(color: Color(0xFFEE0F55)),
-            ),
-            Icon(Icons.dehaze, color: Color(0xFFEE0F55)),
-          ],
-        ),
-      ),
+      appBar: AppBarCustom("Questionário"),
       body: SizedBox(
         width: double.infinity,
         child: Card(
@@ -111,17 +98,22 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.arrow_back_ios,
-                  color: Color(0xFFEE0F55),
-                ),
-                Text(
-                  "Voltar",
-                  style: TextStyle(color: Color(0xFFEE0F55)),
-                ),
-              ],
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.arrow_back_ios,
+                    color: Color(0xFFEE0F55),
+                  ),
+                  Text(
+                    "Voltar",
+                    style: TextStyle(color: Color(0xFFEE0F55)),
+                  ),
+                ],
+              ),
             ),
             Row(
               children: [
@@ -145,7 +137,8 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
             GestureDetector(
               onTap: () {
                 Navigator.push(
-                  context, EnterExitRoute(exitPage: widget, enterPage: QuizMealsLike()),
+                  context,
+                  EnterExitRoute(exitPage: widget, enterPage: QuizMealsLike()),
                 );
               },
               child: Container(
