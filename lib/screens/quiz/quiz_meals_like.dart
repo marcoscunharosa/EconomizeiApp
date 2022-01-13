@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 
 import 'package:flutter/services.dart';
 import '../../widgets/app_bar_custom.dart';
-=======
-import 'package:flutter/services.dart';
->>>>>>> fb4126e01ca14fe94cca4ec5008fabe3bbca40c9
 
 class QuizMealsLike extends StatefulWidget {
   const QuizMealsLike({Key? key}) : super(key: key);

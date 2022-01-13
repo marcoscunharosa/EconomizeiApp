@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import './quiz_meals_like.dart';
 import '../../widgets/enter_exit_route.dart';
-<<<<<<< HEAD
 import '../../widgets/app_bar_custom.dart';
-=======
->>>>>>> fb4126e01ca14fe94cca4ec5008fabe3bbca40c9
 
 class QuizAmountPeople extends StatefulWidget {
   const QuizAmountPeople({Key? key}) : super(key: key);
@@ -101,7 +98,6 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-<<<<<<< HEAD
             GestureDetector(
               onTap: () {
                 Navigator.pop(context);
@@ -118,19 +114,6 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
                   ),
                 ],
               ),
-=======
-            Row(
-              children: [
-                Icon(
-                  Icons.arrow_back_ios,
-                  color: Color(0xFFEE0F55),
-                ),
-                Text(
-                  "Voltar",
-                  style: TextStyle(color: Color(0xFFEE0F55)),
-                ),
-              ],
->>>>>>> fb4126e01ca14fe94cca4ec5008fabe3bbca40c9
             ),
             Row(
               children: [
@@ -154,12 +137,8 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
             GestureDetector(
               onTap: () {
                 Navigator.push(
-<<<<<<< HEAD
                   context,
                   EnterExitRoute(exitPage: widget, enterPage: QuizMealsLike()),
-=======
-                  context, EnterExitRoute(exitPage: widget, enterPage: QuizMealsLike()),
->>>>>>> fb4126e01ca14fe94cca4ec5008fabe3bbca40c9
                 );
               },
               child: Container(
