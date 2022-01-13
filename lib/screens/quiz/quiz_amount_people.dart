@@ -27,25 +27,7 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
       appBar: AppBarCustom("Questionário"),
-=======
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        toolbarHeight: 72,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text(
-              "Questionário",
-              style: TextStyle(color: Color(0xFFEE0F55)),
-            ),
-            Icon(Icons.dehaze, color: Color(0xFFEE0F55)),
-          ],
-        ),
-      ),
->>>>>>> fb4126e (Creating screens 1 and 2 of inicial quiz)
       body: SizedBox(
         width: double.infinity,
         child: Card(
@@ -116,7 +98,6 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-<<<<<<< HEAD
             GestureDetector(
               onTap: () {
                 Navigator.pop(context);
@@ -133,19 +114,6 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
                   ),
                 ],
               ),
-=======
-            Row(
-              children: [
-                Icon(
-                  Icons.arrow_back_ios,
-                  color: Color(0xFFEE0F55),
-                ),
-                Text(
-                  "Voltar",
-                  style: TextStyle(color: Color(0xFFEE0F55)),
-                ),
-              ],
->>>>>>> fb4126e (Creating screens 1 and 2 of inicial quiz)
             ),
             Row(
               children: [
@@ -169,12 +137,8 @@ class _QuizAmountPeopleState extends State<QuizAmountPeople> {
             GestureDetector(
               onTap: () {
                 Navigator.push(
-<<<<<<< HEAD
                   context,
                   EnterExitRoute(exitPage: widget, enterPage: QuizMealsLike()),
-=======
-                  context, EnterExitRoute(exitPage: widget, enterPage: QuizMealsLike()),
->>>>>>> fb4126e (Creating screens 1 and 2 of inicial quiz)
                 );
               },
               child: Container(
