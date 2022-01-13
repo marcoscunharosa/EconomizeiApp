@@ -4,13 +4,13 @@ import './meal.dart';
 
 class UserPreferences {
   List<Meal> meals;
-  int eaters;
+  int? eaters;
   //List<Recipe> dontEatRecipe;
   //List<Ingredients> dontEatIngredient;
 
   UserPreferences({
     required this.meals,
-    required this.eaters,
+    this.eaters,
     //required this.dontEatRecipe,
     //required this.dontEatIngredient,
   });
