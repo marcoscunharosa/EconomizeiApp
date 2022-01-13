@@ -99,4 +99,5 @@ class UserService {
           "Selecione todos os dias para os quais você gostaria de gerar um cardápio:",
     ));
   }
+
 }
