@@ -1,0 +1,15 @@
+enum UnityType{
+  xicara,
+  colherSopa,
+  unidade,
+  fatia,
+  grama,
+  dente,
+  fio,
+  lata,
+  cubo,
+  mililitro,
+  kilograma,
+  copo,
+  quantidade,
+}

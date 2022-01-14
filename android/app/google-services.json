@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "842446206455",
+    "project_id": "economizei-app",
+    "storage_bucket": "economizei-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842446206455:android:3d38a288b19c25bc716af2",
+        "android_client_info": {
+          "package_name": "com.example.economizei_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842446206455-q5tcnnos2slaaiffr8149av0no58tmg3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfhSGKI4d0FkOT9pblG7-VY7LjPgzByx0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842446206455-q5tcnnos2slaaiffr8149av0no58tmg3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
