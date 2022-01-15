@@ -4,7 +4,7 @@ import './meal.dart';
 
 class UserPreferences {
   List<Meal> meals;
-  int? eaters;
+  int? eaters = 0;
   //List<Recipe> dontEatRecipe;
   //List<Ingredients> dontEatIngredient;
 
@@ -14,4 +14,8 @@ class UserPreferences {
     //required this.dontEatRecipe,
     //required this.dontEatIngredient,
   });
+
+  void setEatersNumber(int num) {
+    eaters = num;
+  }
 }

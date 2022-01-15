@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'meals_grid.dart';
 import '../../widgets/enter_exit_route.dart';
-import '../quiz/quiz_amount_people.dart';
+import '../quiz/quiz.dart';
 import '../../widgets/app_bar_custom.dart';
 import '../../models/meal.dart';
 import '../../models/meal_type.dart';
@@ -40,7 +40,7 @@ class _CreateYourMealsState extends State<CreateYourMeals> {
             UserService.getInstance()?.createUserMeals(meals: meals);
             Navigator.push(
               context,
-              EnterExitRoute(exitPage: widget, enterPage: QuizAmountPeople()),
+              EnterExitRoute(exitPage: widget, enterPage: Quiz()),
             );
           },
           child: Row(
