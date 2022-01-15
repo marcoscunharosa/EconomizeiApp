@@ -8,7 +8,7 @@ import '../models/user_preferences.dart';
 class UserService {
   static UserService? instance;
   Account? userAccount;
-  final questions = [
+  final List<QuizClass> questions = [
     QuizClass(
       icon: Icons.people_alt_rounded,
       color: {
@@ -55,13 +55,6 @@ class UserService {
     }
     userAccount?.setMeals(filterMeals);
     addOtherQuestions();
-
-    for (var i = 0; i < filterMeals.length; i++) {
-      print(userAccount?.preferences.meals[i].name);
-    }
-    for (var i = 0; i < questions.length; i++) {
-      print(questions[i].question);
-    }
   }
 
   void createQuestionMeal(Meal meal) {
