@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 import 'package:economizei_app/models/recipe.dart';
 import 'package:economizei_app/screens/quiz/answers.dart';
+=======
+import 'package:economizei_app/widgets/selection_button.dart';
+>>>>>>> bdf374e (Revert "Revert "Refactoring quiz"")
 import 'package:flutter/material.dart';
 
 import '../../widgets/app_bar_custom.dart';
 import '../../service/user_service.dart';
 import './quiz_body.dart';
+<<<<<<< HEAD
 import '../../models/product.dart';
+=======
+>>>>>>> bdf374e (Revert "Revert "Refactoring quiz"")
 
 class Quiz extends StatefulWidget {
   @override
@@ -25,7 +32,6 @@ class _QuizState extends State<Quiz> {
   List<Product> products = [];
   List<Recipe> recipes = [];
 
-  @override
   void setInformation() {
     setState(() {
       continueColor = const Color(0xFFEE0F55);
@@ -41,7 +47,6 @@ class _QuizState extends State<Quiz> {
     });
   }
 
-  @override
   void saveNumberPeople(int number) {
     if (number != null) {
       UserService.getInstance()!
@@ -106,9 +111,6 @@ class _QuizState extends State<Quiz> {
     } else {
       print("cant continue");
     }
-
-    print(
-        "Eaters ${UserService.getInstance()!.userAccount!.preferences.eaters}");
   }
 
   void addNumber() {
@@ -189,7 +191,7 @@ class _QuizState extends State<Quiz> {
   @override
   Widget navigationBar() {
     navigationQuizPages = [];
-    navigationQuizColor.add(Color(0xFFEE0F55));
+    navigationQuizColor.add(const Color(0xFFEE0F55));
     navigationQuizPages.add(
       Icon(
         Icons.circle,
@@ -198,7 +200,7 @@ class _QuizState extends State<Quiz> {
       ),
     );
     for (var i = 1; i < UserService.getInstance()!.questions.length; i++) {
-      navigationQuizColor.add(Color(0xFF959595));
+      navigationQuizColor.add(const Color(0xFF959595));
       navigationQuizPages.add(
         Icon(
           Icons.circle,
@@ -210,7 +212,7 @@ class _QuizState extends State<Quiz> {
 
     return Container(
       height: 52,
-      color: Color(0xFFF1F1F1),
+      color: const Color(0xFFF1F1F1),
       //padding: EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -223,12 +225,12 @@ class _QuizState extends State<Quiz> {
               children: [
                 Container(
                   margin: const EdgeInsets.only(left: 10),
-                  child: Icon(
+                  child: const Icon(
                     Icons.arrow_back_ios,
                     color: Color(0xFFEE0F55),
                   ),
                 ),
-                Text(
+                const Text(
                   "Voltar",
                   style: TextStyle(
                       fontSize: 18,
@@ -245,23 +247,21 @@ class _QuizState extends State<Quiz> {
             onTap: () {
               next();
             },
-            child: Container(
-              child: Row(
-                children: [
-                  Text(
-                    "Continuar",
-                    style: TextStyle(
-                        fontSize: 18, color: continueColor, letterSpacing: 1.5),
+            child: Row(
+              children: [
+                Text(
+                  "Continuar",
+                  style: TextStyle(
+                      fontSize: 18, color: continueColor, letterSpacing: 1.5),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(left: 10),
+                  child: Icon(
+                    Icons.arrow_forward_ios,
+                    color: continueColor,
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 10),
-                    child: Icon(
-                      Icons.arrow_forward_ios,
-                      color: continueColor,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ],
@@ -273,7 +273,7 @@ class _QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarCustom("Questionário"),
-      body: quizBody(),
+      body: QuizBody(widget.value, answerType),
       bottomNavigationBar: navigationBar(),
     );
   }
