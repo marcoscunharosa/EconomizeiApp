@@ -1,18 +1,14 @@
-<<<<<<< HEAD
 import 'package:economizei_app/models/recipe.dart';
 import 'package:economizei_app/screens/quiz/answers.dart';
-=======
 import 'package:economizei_app/widgets/selection_button.dart';
->>>>>>> bdf374e (Revert "Revert "Refactoring quiz"")
+import 'package:economizei_app/screens/quiz/answers.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/app_bar_custom.dart';
 import '../../service/user_service.dart';
 import './quiz_body.dart';
-<<<<<<< HEAD
 import '../../models/product.dart';
-=======
->>>>>>> bdf374e (Revert "Revert "Refactoring quiz"")
+import '../../models/product.dart';
 
 class Quiz extends StatefulWidget {
   @override
