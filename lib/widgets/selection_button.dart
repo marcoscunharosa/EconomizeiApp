@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
+import '../models/product.dart';
 
 class SelectionButton extends StatefulWidget {
   Color unselectedColor;
   Color selectedColor;
   String insideText;
   Function activatedFunction;
+  Function deactivatedFunction;
+  Product product;
 
-  SelectionButton(
-      {required this.unselectedColor,
-      required this.selectedColor,
-      required this.insideText,
-      required this.activatedFunction});
+  SelectionButton({
+    required this.unselectedColor,
+    required this.selectedColor,
+    required this.insideText,
+    required this.activatedFunction,
+    required this.deactivatedFunction,
+    required this.product,
+  });
 
   @override
   State<SelectionButton> createState() => _SelectionButtonState();
@@ -35,6 +40,11 @@ class _SelectionButtonState extends State<SelectionButton> {
         onPressed: () {
           setState(() {
             pressAttention = !pressAttention;
+            if (pressAttention) {
+              widget.activatedFunction(widget.product);
+            } else {
+              widget.deactivatedFunction(widget.product);
+            }
           });
         },
       ),
