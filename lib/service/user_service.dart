@@ -12,11 +12,10 @@ class UserService {
     QuizClass(
       icon: Icons.people_alt_rounded,
       color: {
-        'primary': const Color(0xFFEE0F55),
+        'primary': const Color(0xFF0FB8EE),
         'secondary': const Color(0xFFCF8F8F)
       },
       question: "Para quantas pessoas você está planejando este cardápio?",
-      answer: [0],
     ),
   ];
 
@@ -62,29 +61,26 @@ class UserService {
       icon: meal.type.icon,
       color: meal.type.color,
       question: "O que você(s) costuma(m) comer na refeição ${meal.name}?",
-      answer: [0],
     ));
   }
 
   void addOtherQuestions() {
     questions.add(QuizClass(
-      icon: Icons.people_alt_rounded,
+      icon: Icons.do_not_touch_rounded,
       color: {
-        'primary': const Color(0xFFEE0F55),
-        'secondary': const Color(0xFFCF8F8F)
+        'primary': const Color(0xFF03031B),
+        'secondary': const Color(0xFF03031B)
       },
       question: "O que você(s) não gosta(m) de comer?",
-      answer: [""],
     ));
     questions.add(QuizClass(
-      icon: Icons.people_alt_rounded,
+      icon: Icons.calendar_today_rounded,
       color: {
-        'primary': const Color(0xFFEE0F55),
-        'secondary': const Color(0xFFCF8F8F)
+        'primary': const Color(0xFF32CD32),
+        'secondary': const Color(0xFF32CD32)
       },
       question:
           "Selecione todos os dias para os quais você gostaria de gerar um cardápio:",
-      answer: [""],
     ));
   }
 }
