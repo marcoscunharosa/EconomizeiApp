@@ -1,9 +1,7 @@
-import 'package:economizei_app/widgets/selection_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/app_bar_custom.dart';
 import '../../service/user_service.dart';
-import './quiz_body.dart';
 
 class Quiz extends StatefulWidget {
   @override
@@ -20,6 +18,7 @@ class _QuizState extends State<Quiz> {
   Color continueColor = Color(0xFF959595);
   bool canContinue = false;
 
+  @override
   void setInformation() {
     setState(() {
       continueColor = Color(0xFFEE0F55);
@@ -34,6 +33,7 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  @override
   void saveNumberPeople(int number) {
     if (number != null) {
       UserService.getInstance()!
@@ -77,6 +77,9 @@ class _QuizState extends State<Quiz> {
     } else {
       print("cant continue");
     }
+
+    print(
+        "Eaters ${UserService.getInstance()!.userAccount!.preferences.eaters}");
   }
 
   void addNumber() {
@@ -94,15 +97,15 @@ class _QuizState extends State<Quiz> {
   Widget answerType() {
     if (widget.value == 0) {
       return Card(
-        color: const Color(0xFFF5F5F5),
+        color: Color(0xFFF5F5F5),
         elevation: 0,
         shape: RoundedRectangleBorder(
-          side: const BorderSide(color: Colors.transparent, width: 1),
+          side: BorderSide(color: Colors.transparent, width: 1),
           borderRadius: BorderRadius.circular(5),
         ),
         child: Container(
           width: 80,
-          padding: const EdgeInsets.only(
+          padding: EdgeInsets.only(
             top: 5,
             bottom: 5,
             left: 10,
@@ -112,7 +115,7 @@ class _QuizState extends State<Quiz> {
             controller: numberPeopleController,
             keyboardType: TextInputType.number,
             textAlign: TextAlign.center,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 32,
             ),
             validator: (numberPeopleController) {
@@ -130,130 +133,65 @@ class _QuizState extends State<Quiz> {
         ),
       );
     } else {
-      return Container(
-        height: 300,
-        width: 270,
-        child: GridView.count(
-          crossAxisCount: 2,
-          childAspectRatio: 3.5,
-          children: [
-            SelectionButton(
-              unselectedColor: const Color(0xFF959595),
-              selectedColor: const Color(0xFFEE0F55),
-              insideText: "Olá",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Olá",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Olá",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-          ],
-        ),
-      );
+      return Text("nada");
     }
   }
 
+  Widget quizBody() {
+    return Container(
+      color: Colors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: double.infinity,
+            child: Card(
+              elevation: 0,
+              color: Colors.white,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    UserService.getInstance()!.questions[widget.value].icon,
+                    color: UserService.getInstance()!
+                        .questions[widget.value]
+                        .color['primary'],
+                    size: 144,
+                  ),
+                  Container(
+                    width: 276,
+                    child: Card(
+                        color: Colors.transparent,
+                        elevation: 0,
+                        margin: EdgeInsets.only(
+                          top: 32,
+                          bottom: 16,
+                        ),
+                        child: Text(
+                          UserService.getInstance()!
+                              .questions[widget.value]
+                              .question,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: "Roboto",
+                          ),
+                        )),
+                  ),
+                  answerType(),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  @override
   Widget navigationBar() {
     navigationQuizPages = [];
-    navigationQuizColor.add(const Color(0xFFEE0F55));
+    navigationQuizColor.add(Color(0xFFEE0F55));
     navigationQuizPages.add(
       Icon(
         Icons.circle,
@@ -262,7 +200,7 @@ class _QuizState extends State<Quiz> {
       ),
     );
     for (var i = 1; i < UserService.getInstance()!.questions.length; i++) {
-      navigationQuizColor.add(const Color(0xFF959595));
+      navigationQuizColor.add(Color(0xFF959595));
       navigationQuizPages.add(
         Icon(
           Icons.circle,
@@ -274,7 +212,7 @@ class _QuizState extends State<Quiz> {
 
     return Container(
       height: 52,
-      color: const Color(0xFFF1F1F1),
+      color: Color(0xFFF1F1F1),
       //padding: EdgeInsets.all(10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -287,12 +225,12 @@ class _QuizState extends State<Quiz> {
               children: [
                 Container(
                   margin: const EdgeInsets.only(left: 10),
-                  child: const Icon(
+                  child: Icon(
                     Icons.arrow_back_ios,
                     color: Color(0xFFEE0F55),
                   ),
                 ),
-                const Text(
+                Text(
                   "Voltar",
                   style: TextStyle(
                       fontSize: 18,
@@ -309,21 +247,23 @@ class _QuizState extends State<Quiz> {
             onTap: () {
               next();
             },
-            child: Row(
-              children: [
-                Text(
-                  "Continuar",
-                  style: TextStyle(
-                      fontSize: 18, color: continueColor, letterSpacing: 1.5),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(left: 10),
-                  child: Icon(
-                    Icons.arrow_forward_ios,
-                    color: continueColor,
+            child: Container(
+              child: Row(
+                children: [
+                  Text(
+                    "Continuar",
+                    style: TextStyle(
+                        fontSize: 18, color: continueColor, letterSpacing: 1.5),
                   ),
-                ),
-              ],
+                  Container(
+                    margin: const EdgeInsets.only(left: 10),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: continueColor,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -335,7 +275,7 @@ class _QuizState extends State<Quiz> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBarCustom("Questionário"),
-      body: QuizBody(widget.value, answerType),
+      body: quizBody(),
       bottomNavigationBar: navigationBar(),
     );
   }
