@@ -1,9 +1,10 @@
-import 'package:economizei_app/widgets/selection_button.dart';
+import 'package:economizei_app/screens/quiz/answers.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/app_bar_custom.dart';
 import '../../service/user_service.dart';
 import './quiz_body.dart';
+import '../../models/product.dart';
 
 class Quiz extends StatefulWidget {
   @override
@@ -19,6 +20,8 @@ class _QuizState extends State<Quiz> {
   final numberPeopleController = TextEditingController();
   Color continueColor = Color(0xFF959595);
   bool canContinue = false;
+  int selected = 0;
+  List<Product> products = [];
 
   void setInformation() {
     setState(() {
@@ -31,6 +34,7 @@ class _QuizState extends State<Quiz> {
     setState(() {
       continueColor = Color(0xFF959595);
       canContinue = false;
+      products = [];
     });
   }
 
@@ -44,7 +48,8 @@ class _QuizState extends State<Quiz> {
   }
 
   void previous() {
-    if (widget.value - 1 == 0 && numberPeopleController.text != "") {
+    if (widget.value - 1 == 0 &&
+        (numberPeopleController.text != "" || selected > 0)) {
       saveNumberPeople(int.parse(numberPeopleController.text));
       setInformation();
     }
@@ -59,10 +64,30 @@ class _QuizState extends State<Quiz> {
     }
   }
 
+  void saveLikes() {
+    UserService.getInstance()!
+        .userAccount!
+        .preferences
+        .addEatAtProducts(widget.value - 1, products);
+  }
+
+  void saveDislikes() {
+    UserService.getInstance()!
+        .userAccount!
+        .preferences
+        .addDontEatProduct(products);
+  }
+
   void next() {
     if (canContinue) {
       if (widget.value == 0 && numberPeopleController.text != "") {
         saveNumberPeople(int.parse(numberPeopleController.text));
+      } else if (widget.value > 0 &&
+          widget.value <= UserService.getInstance()!.questions.length - 3) {
+        saveLikes();
+      } else if (widget.value ==
+          UserService.getInstance()!.questions.length - 2) {
+        saveDislikes();
       }
       if (widget.value + 1 >= UserService.getInstance()!.questions.length) {
         return Navigator.pop(context);
@@ -92,163 +117,14 @@ class _QuizState extends State<Quiz> {
   }
 
   Widget answerType() {
-    if (widget.value == 0) {
-      return Card(
-        color: const Color(0xFFF5F5F5),
-        elevation: 0,
-        shape: RoundedRectangleBorder(
-          side: const BorderSide(color: Colors.transparent, width: 1),
-          borderRadius: BorderRadius.circular(5),
-        ),
-        child: Container(
-          width: 80,
-          padding: const EdgeInsets.only(
-            top: 5,
-            bottom: 5,
-            left: 10,
-            right: 10,
-          ),
-          child: TextFormField(
-            controller: numberPeopleController,
-            keyboardType: TextInputType.number,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 32,
-            ),
-            validator: (numberPeopleController) {
-              if (numberPeopleController != null ||
-                  numberPeopleController!.isNotEmpty) {
-                setInformation();
-              }
-            },
-            onChanged: (_) {
-              if (numberPeopleController.text != "") {
-                setInformation();
-              }
-            },
-          ),
-        ),
-      );
-    } else {
-      return Container(
-        height: 300,
-        width: 270,
-        child: GridView.count(
-          crossAxisCount: 2,
-          childAspectRatio: 3.5,
-          children: [
-            SelectionButton(
-              unselectedColor: const Color(0xFF959595),
-              selectedColor: const Color(0xFFEE0F55),
-              insideText: "Olá",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Olá",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Olá",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-            SelectionButton(
-              unselectedColor: Color(0xFF959595),
-              selectedColor: Color(0xFFEE0F55),
-              insideText: "Tudo bem?",
-              activatedFunction: () {},
-            ),
-          ],
-        ),
-      );
-    }
+    return Answers(
+      type: widget.value,
+      setInformation: setInformation,
+      clearInformation: clearInformation,
+      numberPeopleController: numberPeopleController,
+      selected: selected,
+      products: products,
+    );
   }
 
   Widget navigationBar() {

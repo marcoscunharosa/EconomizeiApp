@@ -7,6 +7,7 @@ class ProductsRepository {
   static ProductsRepository? repository;
   late final List<Map<String, String>> _itemsTable;
   late final HashMap<String, Product> _items;
+  late final List<Product> allProducts;
   static ProductsRepository? getRepository() {
     repository ??= ProductsRepository();
     return repository;
@@ -198,11 +199,12 @@ class ProductsRepository {
         "grossery-category": "doces"
       },
     ];
+    _items = HashMap<String, Product>();
     _createRepository();
+    allProducts = _items.entries.map((entry) => entry.value).toList();
   }
 
   void _createRepository() {
-    _items = HashMap<String, Product>();
     for (var i = 0; i < _itemsTable.length; i++) {
       var newProductTable = _itemsTable[i];
       ProductType? productType = EnumToString.fromString(
