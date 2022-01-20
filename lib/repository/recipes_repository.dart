@@ -512,6 +512,85 @@ class RecipesRepository {
           },
         ]
       },
+      {
+        "name-id": "strogonoff-de-frango",
+        "name": "Strogonoff de Frango",
+        "servings": 10,
+        "ingredients": [
+          {
+            "quantity": 3,
+            "unity": "",
+            "product": "peito-frango",
+            "description": "picado em cubos"
+          },
+          {
+            "quantity": 1,
+            "unity": "dente",
+            "product": "alho",
+            "description": "picado"
+          },
+          {
+            "quantity": "",
+            "unity": "",
+            "product": "sal",
+            "description": "a gosto"
+          },
+          {
+            "quantity": "",
+            "unity": "",
+            "product": "pimenta",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1,
+            "unity": "unidade",
+            "product": "cebola",
+            "description": "picada"
+          },
+          {
+            "quantity": 2,
+            "unity": "colherSopa",
+            "product": "maionese",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colher",
+            "product": "manteiga",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "copo",
+            "product": "ketchup",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 3,
+            "unity": "copo",
+            "product": "mostarda",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "copo",
+            "product": "cogumelo",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "copo",
+            "product": "creme-de-leite",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "batata-palha",
+            "description": "a gosto"
+          },
+        ]
+      }
     ];
     _items = HashMap<String, Recipe>();
     _createRepository();
@@ -538,8 +617,8 @@ class RecipesRepository {
       var product = ProductsRepository.getRepository()!
           .getProductById(ingredientTable['product']);
 
-      var unityType = EnumToString.fromString(
-          UnityType.values, ingredientTable['unity']!);
+      var unityType =
+          EnumToString.fromString(UnityType.values, ingredientTable['unity']!);
 
       var newIngredient = Ingredient(
           quantity: ingredientTable['quantity'].toDouble(),
@@ -551,7 +630,7 @@ class RecipesRepository {
     }
   }
 
-  Recipe? getRecipeById(String nameId){
+  Recipe? getRecipeById(String nameId) {
     return _items[nameId];
   }
 }

@@ -197,6 +197,43 @@ class ProductsRepository {
         "name": "Achocolatado",
         "grossery-category": "doces"
       },
+      {
+        "name-id": "peito-frango",
+        "name": "Peito de frango",
+        "grossery-category": "proteinas"
+      },
+      {"name-id": "sal", "name": "Sal", "grossery-category": "tempero"},
+      {
+        "name-id": "pimenta",
+        "name": "Pimenta",
+        "grossery-category": "hortifruti"
+      },
+      {
+        "name-id": "maionese",
+        "name": "Maionese",
+        "grossery-category": "laticionio"
+      },
+      {"name-id": "ketchup", "name": "Ketchup", "grossery-category": "tempero"},
+      {
+        "name-id": "mostarda",
+        "name": "Mostarda",
+        "grossery-category": "tempero"
+      },
+      {
+        "name-id": "cogumelo",
+        "name": "Cogumelo",
+        "grossery-category": "hortifruti"
+      },
+      {
+        "name-id": "creme-de-leite",
+        "name": "Creme de Leite",
+        "grossery-category": "laticinio"
+      },
+      {
+        "name-id": "batata-palha",
+        "name": "Batata Palha",
+        "grossery-category": "industrializados"
+      },
     ];
     _createRepository();
   }
@@ -216,7 +253,7 @@ class ProductsRepository {
   }
 
   Product? getProductById(String nameId) {
-    if(_items[nameId] == null){
+    if (_items[nameId] == null) {
       print(nameId);
     }
     return _items[nameId];
