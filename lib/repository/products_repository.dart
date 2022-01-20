@@ -244,6 +244,11 @@ class ProductsRepository {
         "name": "Feijão",
         "grossery-category": "hortifruti"
       },
+      {
+        "name-id": "pimenta-branca",
+        "name": "Pimenta Branca",
+        "grossery-category": "hortifruti"
+      },
     ];
     _createRepository();
   }

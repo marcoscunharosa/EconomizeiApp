@@ -682,6 +682,79 @@ class RecipesRepository {
             "description": ""
           },
         ]
+      },
+      {
+        "name-id": "escondidinho-carne-moida",
+        "name": "Escondidinho de carne moida",
+        "servings": 8,
+        "ingredients": [
+          {
+            "quantity": 1,
+            "unity": "kg",
+            "product": "batata",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "kg",
+            "product": "carne-moida",
+            "description": ""
+          },
+          {
+            "quantity": 200,
+            "unity": "gramas",
+            "product": "queijo-mussarela",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "fio",
+            "product": "azeite",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "unidade",
+            "product": "cebola",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "dente",
+            "product": "alho",
+            "description": "amassado"
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "sal",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "pimenta-branca",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "cheiro-verde",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "copo",
+            "product": "leite",
+            "description": ""
+          },
+          {
+            "quantity": 2,
+            "unity": "colheres",
+            "product": "manteiga",
+            "description": ""
+          },
+        ]
       }
     ];
     _items = HashMap<String, Recipe>();
