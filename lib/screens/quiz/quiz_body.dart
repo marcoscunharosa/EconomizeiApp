@@ -35,13 +35,13 @@ class QuizBody extends StatelessWidget {
                     child: Card(
                         color: Colors.transparent,
                         elevation: 0,
-                        margin: EdgeInsets.only(
+                        margin: const EdgeInsets.only(
                           top: 32,
                           bottom: 16,
                         ),
                         child: Text(
                           UserService.getInstance()!.questions[page].question,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             fontFamily: "Roboto",
                           ),

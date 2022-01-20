@@ -1,5 +1,6 @@
+import 'package:flutter/material.dart';
+
 import './user_preferences.dart';
-import 'package:intl/intl.dart';
 
 import '../models/meal.dart';
 
@@ -7,8 +8,8 @@ class Account {
   String username;
   String email;
   UserPreferences preferences;
-  DateFormat? inicialDay;
-  DateFormat? finalDay;
+  DateTime? inicialDay;
+  DateTime? finalDay;
 
   Account({
     required this.username,
@@ -19,7 +20,11 @@ class Account {
   });
 
   void setMeals(List<Meal> meals) {
-    
     preferences = UserPreferences(meals: meals);
+  }
+
+  void setDateRange(DateTimeRange dateRange) {
+    inicialDay = dateRange.start;
+    finalDay = dateRange.end;
   }
 }
