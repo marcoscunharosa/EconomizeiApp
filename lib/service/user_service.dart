@@ -76,8 +76,8 @@ class UserService {
     questions.add(QuizClass(
       icon: Icons.calendar_today_rounded,
       color: {
-        'primary': const Color(0xFF32CD32),
-        'secondary': const Color(0xFF32CD32)
+        'primary': const Color(0xFFEE0F55),
+        'secondary': Colors.white,
       },
       question:
           "Selecione todos os dias para os quais você gostaria de gerar um cardápio:",

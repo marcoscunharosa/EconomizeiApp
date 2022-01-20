@@ -538,8 +538,8 @@ class RecipesRepository {
       var product = ProductsRepository.getRepository()!
           .getProductById(ingredientTable['product']);
 
-      var unityType = EnumToString.fromString(
-          UnityType.values, ingredientTable['unity']!);
+      var unityType =
+          EnumToString.fromString(UnityType.values, ingredientTable['unity']!);
 
       var newIngredient = Ingredient(
           quantity: ingredientTable['quantity'].toDouble(),
@@ -551,7 +551,7 @@ class RecipesRepository {
     }
   }
 
-  Recipe? getRecipeById(String nameId){
+  Recipe? getRecipeById(String nameId) {
     return _items[nameId];
   }
 }
