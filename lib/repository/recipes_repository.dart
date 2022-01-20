@@ -663,6 +663,25 @@ class RecipesRepository {
             "description": "cobertura"
           },
         ]
+      },
+      {
+        "name-id": "feijao",
+        "name": "Feijão",
+        "servings": 6,
+        "ingredients": [
+          {
+            "quantity": 2,
+            "unity": "xicaraCha",
+            "product": "feijao",
+            "description": ""
+          },
+          {
+            "quantity": 4,
+            "unity": "xicaraCha",
+            "product": "agua",
+            "description": ""
+          },
+        ]
       }
     ];
     _items = HashMap<String, Recipe>();

@@ -239,6 +239,11 @@ class ProductsRepository {
         "name": "Açúcar",
         "grossery-category": "ingredientes"
       },
+      {
+        "name-id": "feijao",
+        "name": "Feijão",
+        "grossery-category": "hortifruti"
+      },
     ];
     _createRepository();
   }
