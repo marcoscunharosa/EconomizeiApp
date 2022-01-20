@@ -1,3 +1,4 @@
+import 'package:economizei_app/models/recipe.dart';
 import 'package:economizei_app/screens/quiz/answers.dart';
 import 'package:flutter/material.dart';
 
@@ -18,21 +19,22 @@ class _QuizState extends State<Quiz> {
   List<Widget> navigationQuizPages = [];
   List<Color> navigationQuizColor = [];
   final numberPeopleController = TextEditingController();
-  Color continueColor = Color(0xFF959595);
+  Color continueColor = const Color(0xFF959595);
   bool canContinue = false;
   int selected = 0;
   List<Product> products = [];
+  List<Recipe> recipes = [];
 
   void setInformation() {
     setState(() {
-      continueColor = Color(0xFFEE0F55);
+      continueColor = const Color(0xFFEE0F55);
       canContinue = true;
     });
   }
 
   void clearInformation() {
     setState(() {
-      continueColor = Color(0xFF959595);
+      continueColor = const Color(0xFF959595);
       canContinue = false;
       products = [];
     });
@@ -57,8 +59,8 @@ class _QuizState extends State<Quiz> {
       return Navigator.pop(context);
     } else {
       setState(() {
-        navigationQuizColor[widget.value] = Color(0xFF959595);
-        navigationQuizColor[widget.value - 1] = Color(0xFFEE0F55);
+        navigationQuizColor[widget.value] = const Color(0xFF959595);
+        navigationQuizColor[widget.value - 1] = const Color(0xFFEE0F55);
       });
       decreaseNumber();
     }
@@ -93,8 +95,8 @@ class _QuizState extends State<Quiz> {
         return Navigator.pop(context);
       } else {
         setState(() {
-          navigationQuizColor[widget.value] = Color(0xFF959595);
-          navigationQuizColor[widget.value + 1] = Color(0xFFEE0F55);
+          navigationQuizColor[widget.value] = const Color(0xFF959595);
+          navigationQuizColor[widget.value + 1] = const Color(0xFFEE0F55);
         });
         addNumber();
       }
@@ -124,6 +126,7 @@ class _QuizState extends State<Quiz> {
       numberPeopleController: numberPeopleController,
       selected: selected,
       products: products,
+      recipes: recipes,
     );
   }
 
