@@ -548,12 +548,6 @@ class RecipesRepository {
             "description": "picada"
           },
           {
-            "quantity": 2,
-            "unity": "colherSopa",
-            "product": "maionese",
-            "description": ""
-          },
-          {
             "quantity": 1,
             "unity": "colher",
             "product": "manteiga",
@@ -588,6 +582,85 @@ class RecipesRepository {
             "unity": "",
             "product": "batata-palha",
             "description": "a gosto"
+          },
+        ]
+      },
+      {
+        "name-id": "bolo-chocolate",
+        "name": "Bolo de Chocolate",
+        "servings": 12,
+        "ingredients": [
+          {
+            "quantity": 3,
+            "unity": "unidades",
+            "product": "ovos",
+            "description": ""
+          },
+          {
+            "quantity": 3 / 2,
+            "unity": "xicaraCha",
+            "product": "açucar",
+            "description": ""
+          },
+          {
+            "quantity": 2,
+            "unity": "xicaraCha",
+            "product": "farinha-trigo",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "xicaraCha",
+            "product": "achocolatado",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "oleo",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colherSopa",
+            "product": "fermento-quimico",
+            "description": "em pó"
+          },
+          {
+            "quantity": 1,
+            "unity": "pitada",
+            "product": "sal",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "xicaraCha",
+            "product": "agua",
+            "description": "quente"
+          },
+          {
+            "quantity": 4,
+            "unity": "colherSopa",
+            "product": "leite",
+            "description": "cobertura"
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "achocolatado",
+            "description": "cobertura"
+          },
+          {
+            "quantity": 1,
+            "unity": "colherSopa",
+            "product": "manteiga",
+            "description": "cobertura"
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "açucar",
+            "description": "cobertura"
           },
         ]
       }

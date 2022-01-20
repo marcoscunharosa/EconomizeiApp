@@ -232,7 +232,12 @@ class ProductsRepository {
       {
         "name-id": "batata-palha",
         "name": "Batata Palha",
-        "grossery-category": "industrializados"
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "açucar",
+        "name": "Açúcar",
+        "grossery-category": "ingredientes"
       },
     ];
     _createRepository();
