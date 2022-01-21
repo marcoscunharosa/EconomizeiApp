@@ -512,6 +512,491 @@ class RecipesRepository {
           },
         ]
       },
+      {
+        "name-id": "strogonoff-de-frango",
+        "name": "Strogonoff de Frango",
+        "servings": 10,
+        "ingredients": [
+          {
+            "quantity": 3,
+            "unity": "",
+            "product": "peito-frango",
+            "description": "picado em cubos"
+          },
+          {
+            "quantity": 1,
+            "unity": "dente",
+            "product": "alho",
+            "description": "picado"
+          },
+          {
+            "quantity": "",
+            "unity": "",
+            "product": "sal",
+            "description": "a gosto"
+          },
+          {
+            "quantity": "",
+            "unity": "",
+            "product": "pimenta",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1,
+            "unity": "unidade",
+            "product": "cebola",
+            "description": "picada"
+          },
+          {
+            "quantity": 1,
+            "unity": "colher",
+            "product": "manteiga",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "copo",
+            "product": "ketchup",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 3,
+            "unity": "copo",
+            "product": "mostarda",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "copo",
+            "product": "cogumelo",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "copo",
+            "product": "creme-de-leite",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "batata-palha",
+            "description": "a gosto"
+          },
+        ]
+      },
+      {
+        "name-id": "bolo-chocolate",
+        "name": "Bolo de Chocolate",
+        "servings": 12,
+        "ingredients": [
+          {
+            "quantity": 3,
+            "unity": "unidades",
+            "product": "ovos",
+            "description": ""
+          },
+          {
+            "quantity": 3 / 2,
+            "unity": "xicaraCha",
+            "product": "açucar",
+            "description": ""
+          },
+          {
+            "quantity": 2,
+            "unity": "xicaraCha",
+            "product": "farinha-trigo",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "xicaraCha",
+            "product": "achocolatado",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "oleo",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colherSopa",
+            "product": "fermento-quimico",
+            "description": "em pó"
+          },
+          {
+            "quantity": 1,
+            "unity": "pitada",
+            "product": "sal",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "xicaraCha",
+            "product": "agua",
+            "description": "quente"
+          },
+          {
+            "quantity": 4,
+            "unity": "colherSopa",
+            "product": "leite",
+            "description": "cobertura"
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "achocolatado",
+            "description": "cobertura"
+          },
+          {
+            "quantity": 1,
+            "unity": "colherSopa",
+            "product": "manteiga",
+            "description": "cobertura"
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "açucar",
+            "description": "cobertura"
+          },
+        ]
+      },
+      {
+        "name-id": "feijao",
+        "name": "Feijão",
+        "servings": 6,
+        "ingredients": [
+          {
+            "quantity": 2,
+            "unity": "xicaraCha",
+            "product": "feijao",
+            "description": ""
+          },
+          {
+            "quantity": 4,
+            "unity": "xicaraCha",
+            "product": "agua",
+            "description": ""
+          },
+        ]
+      },
+      {
+        "name-id": "escondidinho-carne-moida",
+        "name": "Escondidinho de carne moida",
+        "servings": 8,
+        "ingredients": [
+          {
+            "quantity": 1,
+            "unity": "kg",
+            "product": "batata",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "kg",
+            "product": "carne-moida",
+            "description": ""
+          },
+          {
+            "quantity": 200,
+            "unity": "gramas",
+            "product": "queijo-mussarela",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "fio",
+            "product": "azeite",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "unidade",
+            "product": "cebola",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "dente",
+            "product": "alho",
+            "description": "amassado"
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "sal",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "pimenta-branca",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "cheiro-verde",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "copo",
+            "product": "leite",
+            "description": ""
+          },
+          {
+            "quantity": 2,
+            "unity": "colheres",
+            "product": "manteiga",
+            "description": ""
+          },
+        ]
+      },
+      {
+        "name-id": "cookie",
+        "name": "Cookies",
+        "servings": 12,
+        "ingredients": [
+          {
+            "quantity": 200,
+            "unity": "gramas",
+            "product": "manteiga-sem-sal",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "açucar",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "açucar-mascavo",
+            "description": ""
+          },
+          {
+            "quantity": 2,
+            "unity": "unidades",
+            "product": "ovos",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colherCha",
+            "product": "essencia-baunilha",
+            "description": ""
+          },
+          {
+            "quantity": 5 / 2,
+            "unity": "xicaraCha",
+            "product": "farinha-trigo",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colherSopa",
+            "product": "amido-milho",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colherCha",
+            "product": "bicarbonato-sodio",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "colherCafe",
+            "product": "sal",
+            "description": ""
+          },
+          {
+            "quantity": 3 / 2,
+            "unity": "xicaraCha",
+            "product": "chocolate-meio-amargo",
+            "description": "picado em cubos pequenos"
+          },
+        ]
+      },
+      {
+        "name-id": "lasanha",
+        "name": "Lasanha",
+        "servings": 6,
+        "ingredients": [
+          {
+            "quantity": 500,
+            "unity": "gramas",
+            "product": "carne-moida",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "cebola",
+            "description": "picada"
+          },
+          {
+            "quantity": 1,
+            "unity": "xicaraCha",
+            "product": "leite",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "lata",
+            "product": "tomate-pelado",
+            "description": "com o liquido"
+          },
+          {
+            "quantity": 1,
+            "unity": "colherSopa",
+            "product": "oleo",
+            "description": ""
+          },
+          {
+            "quantity": 3,
+            "unity": "colherSopa",
+            "product": "manteiga",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "sal",
+            "description": "a gosto"
+          }
+        ]
+      },
+      {
+        "name-id": "salada-grao-bico",
+        "name": "Salada de grão-de-bico",
+        "servings": 5,
+        "ingredients": [
+          {
+            "quantity": 1,
+            "unity": "unidade",
+            "product": "cebola",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colherSopa",
+            "product": "mostarda",
+            "description": ""
+          },
+          {
+            "quantity": 2,
+            "unity": "colhereSopa",
+            "product": "cheiro-verde",
+            "description": ""
+          },
+          {
+            "quantity": 4,
+            "unity": "colherSopa",
+            "product": "azeite",
+            "description": ""
+          },
+          {
+            "quantity": 4,
+            "unity": "dentes",
+            "product": "alho",
+            "description": ""
+          },
+          {
+            "quantity": 200,
+            "unity": "gramas",
+            "product": "grao-de-bico",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1,
+            "unity": "unidade",
+            "product": "limao",
+            "description": "suco"
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "sal",
+            "description": "a gosto"
+          }
+        ]
+      },
+      {
+        "name-id": "calabresa-acebolada",
+        "name": "Calabresa aceboalda",
+        "servings": 1,
+        "ingredients": [
+          {
+            "quantity": 2,
+            "unity": "unidade",
+            "product": "cebola",
+            "description": ""
+          },
+          {"quantity": 1, "unity": "fio", "product": "oleo", "description": ""},
+          {
+            "quantity": 2,
+            "unity": "unidades",
+            "product": "linguica-calabresa",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name-id": "frango-acebolada",
+        "name": "Frango aceboaldo",
+        "servings": 1,
+        "ingredients": [
+          {
+            "quantity": 150,
+            "unity": "gramas",
+            "product": "peito-frango",
+            "description": "cortado em filet"
+          },
+          {
+            "quantity": 1,
+            "unity": "fio",
+            "product": "azeite",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "alho",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "sal",
+            "description": "a gosto"
+          }
+        ]
+      },
+      {
+        "name-id": "pao-com-manteiga",
+        "name": "Pão com manteiga",
+        "servings": 1,
+        "ingredients": [
+          {
+            "quantity": 1,
+            "unity": "unidade",
+            "product": "pao-frances",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "manteiga",
+            "description": "a gosto"
+          }
+        ]
+      }
     ];
     _items = HashMap<String, Recipe>();
     _createRepository();
@@ -538,8 +1023,8 @@ class RecipesRepository {
       var product = ProductsRepository.getRepository()!
           .getProductById(ingredientTable['product']);
 
-      var unityType = EnumToString.fromString(
-          UnityType.values, ingredientTable['unity']!);
+      var unityType =
+          EnumToString.fromString(UnityType.values, ingredientTable['unity']!);
 
       var newIngredient = Ingredient(
           quantity: ingredientTable['quantity'].toDouble(),
@@ -551,7 +1036,7 @@ class RecipesRepository {
     }
   }
 
-  Recipe? getRecipeById(String nameId){
+  Recipe? getRecipeById(String nameId) {
     return _items[nameId];
   }
 }

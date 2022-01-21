@@ -197,6 +197,108 @@ class ProductsRepository {
         "name": "Achocolatado",
         "grossery-category": "doces"
       },
+      {
+        "name-id": "peito-frango",
+        "name": "Peito de frango",
+        "grossery-category": "proteinas"
+      },
+      {"name-id": "sal", "name": "Sal", "grossery-category": "tempero"},
+      {
+        "name-id": "pimenta",
+        "name": "Pimenta",
+        "grossery-category": "hortifruti"
+      },
+      {
+        "name-id": "maionese",
+        "name": "Maionese",
+        "grossery-category": "laticionio"
+      },
+      {"name-id": "ketchup", "name": "Ketchup", "grossery-category": "tempero"},
+      {
+        "name-id": "mostarda",
+        "name": "Mostarda",
+        "grossery-category": "tempero"
+      },
+      {
+        "name-id": "cogumelo",
+        "name": "Cogumelo",
+        "grossery-category": "hortifruti"
+      },
+      {
+        "name-id": "creme-de-leite",
+        "name": "Creme de Leite",
+        "grossery-category": "laticinio"
+      },
+      {
+        "name-id": "batata-palha",
+        "name": "Batata Palha",
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "açucar",
+        "name": "Açúcar",
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "feijao",
+        "name": "Feijão",
+        "grossery-category": "hortifruti"
+      },
+      {
+        "name-id": "pimenta-branca",
+        "name": "Pimenta Branca",
+        "grossery-category": "hortifruti"
+      },
+      {
+        "name-id": "manteiga-sem-sal",
+        "name": "Manteiga sem sal",
+        "grossery-category": "laticinio"
+      },
+      {
+        "name-id": "açucar-mascavo",
+        "name": "Açúcar Mascavo",
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "essencia-baunilha",
+        "name": "Essencia de Baunilha",
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "amido-milho",
+        "name": "Amido de milho",
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "bicarbonato-sodio",
+        "name": "Bicarbonato de sodio",
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "chocolate-meio-amargo",
+        "name": "Chocolate meio amargo",
+        "grossery-category": "doces"
+      },
+      {
+        "name-id": "tomate-pelado",
+        "name": "Tomate pelado",
+        "grossery-category": "hortifruti"
+      },
+      {
+        "name-id": "grao-de-bico",
+        "name": "Grão-de-bico",
+        "grossery-category": "hortifruti"
+      },
+      {
+        "name-id": "linguica-calabresa",
+        "name": "Linguiça calabresa",
+        "grossery-category": "proteina"
+      },
+      {
+        "name-id": "pao-frances",
+        "name": "Pão Frânces",
+        "grossery-category": "panificacao"
+      },
     ];
     _createRepository();
   }
@@ -216,7 +318,7 @@ class ProductsRepository {
   }
 
   Product? getProductById(String nameId) {
-    if(_items[nameId] == null){
+    if (_items[nameId] == null) {
       print(nameId);
     }
     return _items[nameId];
