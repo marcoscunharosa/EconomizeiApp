@@ -249,6 +249,36 @@ class ProductsRepository {
         "name": "Pimenta Branca",
         "grossery-category": "hortifruti"
       },
+      {
+        "name-id": "manteiga-sem-sal",
+        "name": "Manteiga sem sal",
+        "grossery-category": "laticinio"
+      },
+      {
+        "name-id": "açucar-mascavo",
+        "name": "Açúcar Mascavo",
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "essencia-baunilha",
+        "name": "Essencia de Baunilha",
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "amido-milho",
+        "name": "Amido de milho",
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "bicarbonato-sodio",
+        "name": "Bicarbonato de sodio",
+        "grossery-category": "ingredientes"
+      },
+      {
+        "name-id": "chocolate-meio-amargo",
+        "name": "Chocolate meio amargo",
+        "grossery-category": "doces"
+      },
     ];
     _createRepository();
   }

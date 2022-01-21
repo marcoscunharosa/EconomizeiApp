@@ -755,6 +755,73 @@ class RecipesRepository {
             "description": ""
           },
         ]
+      },
+      {
+        "name-id": "cookie",
+        "name": "Cookies",
+        "servings": 12,
+        "ingredients": [
+          {
+            "quantity": 200,
+            "unity": "gramas",
+            "product": "manteiga-sem-sal",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "açucar",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "açucar-mascavo",
+            "description": ""
+          },
+          {
+            "quantity": 2,
+            "unity": "unidades",
+            "product": "ovos",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colherCha",
+            "product": "essencia-baunilha",
+            "description": ""
+          },
+          {
+            "quantity": 5 / 2,
+            "unity": "xicaraCha",
+            "product": "farinha-trigo",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colherSopa",
+            "product": "amido-milho",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colherCha",
+            "product": "bicarbonato-sodio",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "colherCafe",
+            "product": "sal",
+            "description": ""
+          },
+          {
+            "quantity": 3 / 2,
+            "unity": "xicaraCha",
+            "product": "chocolate-meio-amargo",
+            "description": "picado em cubos pequenos"
+          },
+        ]
       }
     ];
     _items = HashMap<String, Recipe>();
