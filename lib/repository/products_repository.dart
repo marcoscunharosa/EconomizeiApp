@@ -279,6 +279,11 @@ class ProductsRepository {
         "name": "Chocolate meio amargo",
         "grossery-category": "doces"
       },
+      {
+        "name-id": "tomate-pelado",
+        "name": "Tomate pelado",
+        "grossery-category": "hortifruti"
+      },
     ];
     _createRepository();
   }

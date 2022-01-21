@@ -822,6 +822,55 @@ class RecipesRepository {
             "description": "picado em cubos pequenos"
           },
         ]
+      },
+      {
+        "name-id": "lasanha",
+        "name": "Lasanha",
+        "servings": 6,
+        "ingredients": [
+          {
+            "quantity": 500,
+            "unity": "gramas",
+            "product": "carne-moida",
+            "description": ""
+          },
+          {
+            "quantity": 1 / 2,
+            "unity": "xicaraCha",
+            "product": "cebola",
+            "description": "picada"
+          },
+          {
+            "quantity": 1,
+            "unity": "xicaraCha",
+            "product": "leite",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "lata",
+            "product": "tomate-pelado",
+            "description": "com o liquido"
+          },
+          {
+            "quantity": 1,
+            "unity": "colherSopa",
+            "product": "oleo",
+            "description": ""
+          },
+          {
+            "quantity": 3,
+            "unity": "colherSopa",
+            "product": "manteiga",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "sal",
+            "description": "a gosto"
+          }
+        ]
       }
     ];
     _items = HashMap<String, Recipe>();
