@@ -871,6 +871,61 @@ class RecipesRepository {
             "description": "a gosto"
           }
         ]
+      },
+      {
+        "name-id": "salada-grao-bico",
+        "name": "Salada de grão-de-bico",
+        "servings": 5,
+        "ingredients": [
+          {
+            "quantity": 1,
+            "unity": "unidade",
+            "product": "cebola",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "colherSopa",
+            "product": "mostarda",
+            "description": ""
+          },
+          {
+            "quantity": 2,
+            "unity": "colhereSopa",
+            "product": "cheiro-verde",
+            "description": ""
+          },
+          {
+            "quantity": 4,
+            "unity": "colherSopa",
+            "product": "azeite",
+            "description": ""
+          },
+          {
+            "quantity": 4,
+            "unity": "dentes",
+            "product": "alho",
+            "description": ""
+          },
+          {
+            "quantity": 200,
+            "unity": "gramas",
+            "product": "grao-de-bico",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1,
+            "unity": "unidade",
+            "product": "limao",
+            "description": "suco"
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "sal",
+            "description": "a gosto"
+          }
+        ]
       }
     ];
     _items = HashMap<String, Recipe>();

@@ -284,6 +284,11 @@ class ProductsRepository {
         "name": "Tomate pelado",
         "grossery-category": "hortifruti"
       },
+      {
+        "name-id": "grao-de-bico",
+        "name": "Grão-de-bico",
+        "grossery-category": "hortifruti"
+      },
     ];
     _createRepository();
   }
