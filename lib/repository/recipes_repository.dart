@@ -926,6 +926,76 @@ class RecipesRepository {
             "description": "a gosto"
           }
         ]
+      },
+      {
+        "name-id": "calabresa-acebolada",
+        "name": "Calabresa aceboalda",
+        "servings": 1,
+        "ingredients": [
+          {
+            "quantity": 2,
+            "unity": "unidade",
+            "product": "cebola",
+            "description": ""
+          },
+          {"quantity": 1, "unity": "fio", "product": "oleo", "description": ""},
+          {
+            "quantity": 2,
+            "unity": "unidades",
+            "product": "linguica-calabresa",
+            "description": ""
+          }
+        ]
+      },
+      {
+        "name-id": "frango-acebolada",
+        "name": "Frango aceboaldo",
+        "servings": 1,
+        "ingredients": [
+          {
+            "quantity": 150,
+            "unity": "gramas",
+            "product": "peito-frango",
+            "description": "cortado em filet"
+          },
+          {
+            "quantity": 1,
+            "unity": "fio",
+            "product": "azeite",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "alho",
+            "description": "a gosto"
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "sal",
+            "description": "a gosto"
+          }
+        ]
+      },
+      {
+        "name-id": "pao-com-manteiga",
+        "name": "Pão com manteiga",
+        "servings": 1,
+        "ingredients": [
+          {
+            "quantity": 1,
+            "unity": "unidade",
+            "product": "pao-frances",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": "",
+            "product": "manteiga",
+            "description": "a gosto"
+          }
+        ]
       }
     ];
     _items = HashMap<String, Recipe>();

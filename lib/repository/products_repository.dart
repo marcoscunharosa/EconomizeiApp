@@ -289,6 +289,16 @@ class ProductsRepository {
         "name": "Grão-de-bico",
         "grossery-category": "hortifruti"
       },
+      {
+        "name-id": "linguica-calabresa",
+        "name": "Linguiça calabresa",
+        "grossery-category": "proteina"
+      },
+      {
+        "name-id": "pao-frances",
+        "name": "Pão Frânces",
+        "grossery-category": "panificacao"
+      },
     ];
     _createRepository();
   }
