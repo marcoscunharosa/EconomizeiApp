@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class QuizClass {
-  final IconData icon;
+  final ImageIcon icon;
   final Map<String, Color> color;
   final String question;
 

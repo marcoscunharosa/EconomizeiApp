@@ -42,7 +42,7 @@ class MealItem extends StatelessWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 12),
-                  child: Icon(
+                  child: ImageIcon(
                     meal.type.icon,
                     color: meal.type.color['primary'],
                     size: 50,
