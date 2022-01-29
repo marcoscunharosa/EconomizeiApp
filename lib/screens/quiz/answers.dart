@@ -1,6 +1,4 @@
 import 'package:economizei_app/models/recipe.dart';
-import 'package:economizei_app/screens/quiz/products_selection.dart';
-import 'package:economizei_app/screens/quiz/recipes_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -12,18 +10,12 @@ class Answers extends StatefulWidget {
   Function setInformation;
   Function clearInformation;
   final numberPeopleController;
-  int selected;
-  List<Product> products;
-  List<Recipe> recipes;
 
   Answers({
     required this.type,
     required this.setInformation,
     required this.clearInformation,
     required this.numberPeopleController,
-    required this.selected,
-    required this.products,
-    required this.recipes,
   });
 
   @override
@@ -105,38 +97,16 @@ class _AnswersState extends State<Answers> {
     if (widget.type > 0 &&
         widget.type <= UserService.getInstance()!.questions.length - 3) {
       return SizedBox(
-          height: 300,
+          height: 270,
           width: 300,
-          /*child: Column(
-          children: [*/
-          /*ProductsSelection(
-              clearInformation: widget.clearInformation,
-              selected: widget.selected,
-              setInformation: widget.setInformation,
-              type: widget.type,
-              products: widget.products,
-            ),*/
-          child: RecipesSelection(
-            clearInformation: widget.clearInformation,
-            selected: widget.selected,
-            setInformation: widget.setInformation,
-            type: widget.type,
-            recipes: widget.recipes,
-          )
-          //],
+          child: Text("Ainda tenho que arrumar"),
           );
     }
     if (widget.type == UserService.getInstance()!.questions.length - 2) {
       return SizedBox(
         height: 300,
         width: 300,
-        child: ProductsSelection(
-          clearInformation: widget.clearInformation,
-          selected: widget.selected,
-          setInformation: widget.setInformation,
-          type: widget.type,
-          products: widget.products,
-        ),
+        child: Text("Ainda tenho que arrumar"),
       );
     } else {
       return Column(
