@@ -127,9 +127,6 @@ class _QuizState extends State<Quiz> {
       setInformation: setInformation,
       clearInformation: clearInformation,
       numberPeopleController: numberPeopleController,
-      selected: selected,
-      products: products,
-      recipes: recipes,
     );
   }
 
