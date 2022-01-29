@@ -10,7 +10,11 @@ class UserService {
   Account? userAccount;
   final List<QuizClass> questions = [
     QuizClass(
-      icon: Icons.people_alt_rounded,
+      icon: const ImageIcon(
+        AssetImage('assets/images/quizpeopleicon.png'),
+        color: Color(0xFF0FB8EE),
+        size: 112,
+      ),
       color: {
         'primary': const Color(0xFF0FB8EE),
         'secondary': const Color(0xFFCF8F8F)
@@ -58,7 +62,11 @@ class UserService {
 
   void createQuestionMeal(Meal meal) {
     questions.add(QuizClass(
-      icon: meal.type.icon,
+      icon: ImageIcon(
+        const AssetImage('assets/images/coffeeicon.png'),
+        color: meal.type.color['primary'],
+        size: 96,
+      ),
       color: meal.type.color,
       question: "O que você(s) costuma(m) comer na refeição ${meal.name}?",
     ));
@@ -66,7 +74,11 @@ class UserService {
 
   void addOtherQuestions() {
     questions.add(QuizClass(
-      icon: Icons.do_not_touch_rounded,
+      icon: const ImageIcon(
+        AssetImage('assets/images/noticon.png'),
+        color: Color(0xFF03031B),
+        size: 96,
+      ),
       color: {
         'primary': const Color(0xFF03031B),
         'secondary': const Color(0xFF03031B)
@@ -74,7 +86,11 @@ class UserService {
       question: "O que você(s) não gosta(m) de comer?",
     ));
     questions.add(QuizClass(
-      icon: Icons.calendar_today_rounded,
+      icon: const ImageIcon(
+        AssetImage('assets/images/quizpeopleicon.png'),
+        color: Color(0xFFEE0F55),
+        size: 112,
+      ),
       color: {
         'primary': const Color(0xFFEE0F55),
         'secondary': Colors.white,

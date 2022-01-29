@@ -203,7 +203,11 @@ class ProductsRepository {
         "name": "Peito de frango",
         "grossery-category": "proteinas"
       },
-      {"name-id": "sal", "name": "Sal", "grossery-category": "temperos"},
+      {
+        "name-id": "sal",
+        "name": "Sal",
+        "grossery-category": "temperos",
+      },
       {
         "name-id": "pimenta",
         "name": "Pimenta",
@@ -212,13 +216,17 @@ class ProductsRepository {
       {
         "name-id": "maionese",
         "name": "Maionese",
-        "grossery-category": "molhos"
+        "grossery-category": "laticinio"
       },
-      {"name-id": "ketchup", "name": "Ketchup", "grossery-category": "molhos"},
+      {
+        "name-id": "ketchup",
+        "name": "Ketchup",
+        "grossery-category": "temperos",
+      },
       {
         "name-id": "mostarda",
         "name": "Mostarda",
-        "grossery-category": "molhos"
+        "grossery-category": "temperos"
       },
       {
         "name-id": "cogumelo",
@@ -325,4 +333,6 @@ class ProductsRepository {
     }
     return _items[nameId];
   }
+
+  
 }

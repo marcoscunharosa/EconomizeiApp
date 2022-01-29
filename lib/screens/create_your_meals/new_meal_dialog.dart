@@ -121,14 +121,17 @@ class _NewMealDialogState extends State<NewMealDialog> {
               alignment: Alignment.center,
               child: _mealTypeChosen == null
                   ? widget.isEditting
-                      ? Icon(
+                      ? ImageIcon(
                           widget.meal!.type.icon,
                           size: 50,
                           color: widget.meal!.type.color['primary'],
                         )
                       : const Icon(Icons.no_meals_ouline, size: 50)
-                  : Icon(_mealTypeChosen!.icon,
-                      size: 50, color: _mealTypeChosen!.color['primary']),
+                  : ImageIcon(
+                      _mealTypeChosen!.icon,
+                      size: 50,
+                      color: _mealTypeChosen!.color['primary'],
+                    ),
               margin: const EdgeInsets.only(bottom: 10),
             ),
             Container(

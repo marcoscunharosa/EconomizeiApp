@@ -23,13 +23,7 @@ class QuizBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(
-                    UserService.getInstance()!.questions[page].icon,
-                    color: UserService.getInstance()!
-                        .questions[page]
-                        .color['primary'],
-                    size: 144,
-                  ),
+                 UserService.getInstance()!.questions[page].icon,
                   Container(
                     width: 276,
                     child: Card(
