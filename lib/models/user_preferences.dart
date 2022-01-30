@@ -1,19 +1,15 @@
-import 'package:economizei_app/models/meal.dart';
-
 import './meal.dart';
-import './product.dart';
+import './eatable.dart';
 
 class UserPreferences {
   List<Meal> meals;
   int? eaters = 0;
-  Map<String, List<Product>> eatAt = {};
-  //List<Recipe> dontEatRecipe;
-  List<Product> dontEatProduct = [];
+  Map<String, List<Eatable>> eatAt = {};
+  List<Eatable> dontEat = [];
 
   UserPreferences({
     required this.meals,
     this.eaters,
-    //required this.dontEatRecipe,
   });
 
   void setEatersNumber(int num) {
@@ -27,14 +23,11 @@ class UserPreferences {
     }
   }
 
-  void addEatAtProducts(int mealIndex, List<Product> products) {
-    eatAt[meals[mealIndex].name] = products;
+  void addEatAt(int mealIndex, List<Eatable> eatable) {
+    eatAt[meals[mealIndex].name] = eatable;
   }
 
-  void addDontEatProduct(List<Product> products) {
-    dontEatProduct = products;
-    for (var i = 0; i < dontEatProduct.length; i++) {
-      print(dontEatProduct[i].name);
-    }
+  void addDontEat(List<Eatable> eatable) {
+    dontEat = eatable;
   }
 }

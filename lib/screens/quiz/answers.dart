@@ -1,22 +1,19 @@
-import 'package:economizei_app/models/eatable.dart';
-import 'package:economizei_app/models/recipe.dart';
-import 'package:economizei_app/repository/products_repository.dart';
-import 'package:economizei_app/repository/recipes_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 import '../../service/user_service.dart';
-import '../../models/product.dart';
 import './multiselect_chip.dart';
+import '../../models/eatable.dart';
+import '../../repository/products_repository.dart';
+import '../../repository/recipes_repository.dart';
 
 class Answers extends StatefulWidget {
   int type;
   Function setInformation;
   Function clearInformation;
   final numberPeopleController;
-  List<String> selectedReportList;
-  List<String> selectedChoices;
+  List<Eatable> selectedReportList;
+  List<Eatable> selectedChoices;
 
   Answers({
     required this.type,

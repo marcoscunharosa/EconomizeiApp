@@ -1,13 +1,13 @@
-import 'package:economizei_app/models/eatable.dart';
 import 'package:flutter/material.dart';
-import '../../models/recipe.dart';
+
+import '../../models/eatable.dart';
 import '../../service/user_service.dart';
 
 class MultiSelectChip extends StatefulWidget {
   final List<Eatable> reportList;
-  List<String> selectedChoices;
+  List<Eatable> selectedChoices;
   int type;
-  final Function(List<String>) onSelectionChanged;
+  final Function(List<Eatable>) onSelectionChanged;
 
   MultiSelectChip(
       this.reportList, this.selectedChoices, this.type, this.onSelectionChanged);
@@ -25,7 +25,7 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
         padding: const EdgeInsets.all(2),
         child: ChoiceChip(
           label: Text(item.getName()),
-          selected: widget.selectedChoices.contains(item.getName()),
+          selected: widget.selectedChoices.contains(item),
           selectedColor: UserService.getInstance()!
                 .questions[widget.type]
                 .color['primary'],
@@ -33,9 +33,9 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
           labelStyle: TextStyle(color: Colors.white),
           onSelected: (selected) {
             setState(() {
-              widget.selectedChoices.contains(item.getName())
-                  ? widget.selectedChoices.remove(item.getName())
-                  : widget.selectedChoices.add(item.getName());
+              widget.selectedChoices.contains(item)
+                  ? widget.selectedChoices.remove(item)
+                  : widget.selectedChoices.add(item);
               widget.onSelectionChanged(widget.selectedChoices);
             });
           },
