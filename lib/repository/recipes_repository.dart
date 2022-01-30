@@ -891,7 +891,7 @@ class RecipesRepository {
           },
           {
             "quantity": 2,
-            "unity": "colhereSopa",
+            "unity": "colherSopa",
             "product": "cheiro-verde",
             "description": ""
           },
