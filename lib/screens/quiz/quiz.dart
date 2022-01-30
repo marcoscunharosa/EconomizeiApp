@@ -1,4 +1,5 @@
 import 'package:economizei_app/models/recipe.dart';
+import 'package:economizei_app/repository/products_repository.dart';
 import 'package:economizei_app/screens/quiz/answers.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +25,8 @@ class _QuizState extends State<Quiz> {
   int selected = 0;
   List<Product> products = [];
   List<Recipe> recipes = [];
+  List<String> selectedReportList = [];
+  List<String> selectedChoices = [];
 
   void setInformation() {
     setState(() {
@@ -36,7 +39,8 @@ class _QuizState extends State<Quiz> {
     setState(() {
       continueColor = const Color(0xFF959595);
       canContinue = false;
-      products = [];
+      selectedReportList = [];
+      selectedChoices = [];
     });
   }
 
@@ -67,6 +71,14 @@ class _QuizState extends State<Quiz> {
   }
 
   void saveLikes() {
+    print("estou aqui");
+    for (var i = 0; i < selectedReportList.length; i++) {
+      if (ProductsRepository.getRepository()!
+          .allProducts
+          .contains(selectedReportList[i])) {
+        print("tem produto");
+      }
+    }
     UserService.getInstance()!
         .userAccount!
         .preferences
@@ -124,6 +136,8 @@ class _QuizState extends State<Quiz> {
       setInformation: setInformation,
       clearInformation: clearInformation,
       numberPeopleController: numberPeopleController,
+      selectedReportList: selectedReportList,
+      selectedChoices: selectedChoices,
     );
   }
 
