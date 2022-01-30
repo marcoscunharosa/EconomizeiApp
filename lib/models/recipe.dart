@@ -1,6 +1,7 @@
+import 'package:economizei_app/models/eatable.dart';
 import 'package:economizei_app/models/ingredient.dart';
 
-class Recipe {
+class Recipe extends Eatable {
   final String nameId;
   String name;
   int servings;
@@ -10,7 +11,12 @@ class Recipe {
     this.ingredients = [];
   }
 
-  void addIngredient(Ingredient ingredient){
+  void addIngredient(Ingredient ingredient) {
     this.ingredients.add(ingredient);
+  }
+
+  @override
+  String getName() {
+    return name;
   }
 }

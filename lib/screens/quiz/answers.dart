@@ -1,21 +1,30 @@
+import 'package:economizei_app/models/eatable.dart';
 import 'package:economizei_app/models/recipe.dart';
+import 'package:economizei_app/repository/products_repository.dart';
+import 'package:economizei_app/repository/recipes_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 import '../../service/user_service.dart';
 import '../../models/product.dart';
+import './multiselect_chip.dart';
 
 class Answers extends StatefulWidget {
   int type;
   Function setInformation;
   Function clearInformation;
   final numberPeopleController;
+  List<String> selectedReportList;
+  List<String> selectedChoices;
 
   Answers({
     required this.type,
     required this.setInformation,
     required this.clearInformation,
     required this.numberPeopleController,
+    required this.selectedReportList,
+    required this.selectedChoices,
   });
 
   @override
@@ -53,6 +62,29 @@ class _AnswersState extends State<Answers> {
     if (_selectedDates != null) {
       UserService.getInstance()!.userAccount!.setDateRange(_selectedDates);
     }
+  }
+
+  Widget eatableSelection() {
+    List<Eatable> eatable = [];
+    eatable.addAll(ProductsRepository.getRepository()!.allProducts);
+    eatable.addAll(RecipesRepository.getRepository()!.allRecipes);
+    return ListView(children: [
+      MultiSelectChip(
+        eatable,
+        widget.selectedChoices,
+        widget.type,
+        (selectedList) {
+          setState(() {
+            widget.selectedReportList = selectedList;
+            if (widget.selectedReportList.length < 1) {
+              widget.clearInformation();
+            } else {
+              widget.setInformation();
+            }
+          });
+        },
+      ),
+    ]);
   }
 
   Widget build(BuildContext context) {
@@ -97,16 +129,16 @@ class _AnswersState extends State<Answers> {
     if (widget.type > 0 &&
         widget.type <= UserService.getInstance()!.questions.length - 3) {
       return SizedBox(
-          height: 270,
-          width: 300,
-          child: Text("Ainda tenho que arrumar"),
-          );
+        height: 270,
+        width: 300,
+        child: eatableSelection(),
+      );
     }
     if (widget.type == UserService.getInstance()!.questions.length - 2) {
       return SizedBox(
-        height: 300,
+        height: 270,
         width: 300,
-        child: Text("Ainda tenho que arrumar"),
+        child: eatableSelection(),
       );
     } else {
       return Column(
