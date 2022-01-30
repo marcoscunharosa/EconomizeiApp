@@ -1,3 +1,4 @@
+import 'package:economizei_app/models/eatable.dart';
 import 'package:economizei_app/models/recipe.dart';
 import 'package:economizei_app/repository/products_repository.dart';
 import 'package:economizei_app/screens/quiz/answers.dart';
@@ -25,8 +26,8 @@ class _QuizState extends State<Quiz> {
   int selected = 0;
   List<Product> products = [];
   List<Recipe> recipes = [];
-  List<String> selectedReportList = [];
-  List<String> selectedChoices = [];
+  List<Eatable> selectedReportList = [];
+  List<Eatable> selectedChoices = [];
 
   void setInformation() {
     setState(() {
@@ -71,25 +72,17 @@ class _QuizState extends State<Quiz> {
   }
 
   void saveLikes() {
-    print("estou aqui");
-    for (var i = 0; i < selectedReportList.length; i++) {
-      if (ProductsRepository.getRepository()!
-          .allProducts
-          .contains(selectedReportList[i])) {
-        print("tem produto");
-      }
-    }
     UserService.getInstance()!
         .userAccount!
         .preferences
-        .addEatAtProducts(widget.value - 1, products);
+        .addEatAt(widget.value - 1, selectedChoices);
   }
 
   void saveDislikes() {
     UserService.getInstance()!
         .userAccount!
         .preferences
-        .addDontEatProduct(products);
+        .addDontEat(selectedChoices);
   }
 
   void next() {
