@@ -1,15 +1,11 @@
 import 'package:economizei_app/models/eatable.dart';
 import 'package:economizei_app/models/recipe.dart';
-import 'package:economizei_app/repository/products_repository.dart';
-import 'package:economizei_app/screens/quiz/answers.dart';
-import 'package:economizei_app/widgets/selection_button.dart';
 import 'package:economizei_app/screens/quiz/answers.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/app_bar_custom.dart';
 import '../../service/user_service.dart';
 import './quiz_body.dart';
-import '../../models/product.dart';
 import '../../models/product.dart';
 
 class Quiz extends StatefulWidget {
