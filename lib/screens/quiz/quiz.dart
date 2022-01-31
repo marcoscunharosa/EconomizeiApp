@@ -1,5 +1,6 @@
 import 'package:economizei_app/models/eatable.dart';
 import 'package:economizei_app/models/recipe.dart';
+import 'package:economizei_app/repository/products_repository.dart';
 import 'package:economizei_app/screens/quiz/answers.dart';
 import 'package:flutter/material.dart';
 
