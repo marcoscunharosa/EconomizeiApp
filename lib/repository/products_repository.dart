@@ -7,6 +7,7 @@ class ProductsRepository {
   static ProductsRepository? repository;
   late final List<Map<String, String>> _itemsTable;
   late final HashMap<String, Product> _items;
+  late final List<Product> allProducts;
   static ProductsRepository? getRepository() {
     repository ??= ProductsRepository();
     return repository;
@@ -202,7 +203,11 @@ class ProductsRepository {
         "name": "Peito de frango",
         "grossery-category": "proteinas"
       },
-      {"name-id": "sal", "name": "Sal", "grossery-category": "temperos"},
+      {
+        "name-id": "sal",
+        "name": "Sal",
+        "grossery-category": "temperos",
+      },
       {
         "name-id": "pimenta",
         "name": "Pimenta",
@@ -211,13 +216,17 @@ class ProductsRepository {
       {
         "name-id": "maionese",
         "name": "Maionese",
-        "grossery-category": "molhos"
+        "grossery-category": "laticinio"
       },
-      {"name-id": "ketchup", "name": "Ketchup", "grossery-category": "molhos"},
+      {
+        "name-id": "ketchup",
+        "name": "Ketchup",
+        "grossery-category": "temperos",
+      },
       {
         "name-id": "mostarda",
         "name": "Mostarda",
-        "grossery-category": "molhos"
+        "grossery-category": "temperos"
       },
       {
         "name-id": "cogumelo",
@@ -300,11 +309,12 @@ class ProductsRepository {
         "grossery-category": "panificacao"
       },
     ];
+    _items = HashMap<String, Product>();
     _createRepository();
+    allProducts = _items.entries.map((entry) => entry.value).toList();
   }
 
   void _createRepository() {
-    _items = HashMap<String, Product>();
     for (var i = 0; i < _itemsTable.length; i++) {
       var newProductTable = _itemsTable[i];
       ProductType? productType = EnumToString.fromString(
@@ -323,4 +333,6 @@ class ProductsRepository {
     }
     return _items[nameId];
   }
+
+  
 }

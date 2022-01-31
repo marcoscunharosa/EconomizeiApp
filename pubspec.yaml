@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  multi_select_flutter: ^4.0.0
   
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -59,6 +60,14 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  assets:
+   - assets/images/quizpeopleicon.png
+   - assets/images/coffeeicon.png
+   - assets/images/betweenmealsicon.png
+   - assets/images/dinnericon.png
+   - assets/images/lunchicon.png
+   - assets/images/noticon.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

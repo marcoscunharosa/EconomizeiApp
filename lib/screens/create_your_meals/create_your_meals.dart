@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'meals_grid.dart';
+import '../../widgets/enter_exit_route.dart';
+import '../quiz/quiz.dart';
+import '../../widgets/app_bar_custom.dart';
+import '../../models/meal.dart';
+import '../../models/meal_type.dart';
+import '../../service/user_service.dart';
 
 class CreateYourMeals extends StatefulWidget {
   const CreateYourMeals({Key? key}) : super(key: key);
@@ -9,47 +16,50 @@ class CreateYourMeals extends StatefulWidget {
 }
 
 class _CreateYourMealsState extends State<CreateYourMeals> {
+  List<Meal> meals = [
+    Meal(
+        name: "Café da Manhã",
+        type: MealType.breakfast,
+        timetable: DateTime.parse("2019-11-20 08:00:00")),
+    Meal(
+        name: "Adicionar",
+        type: MealType.addButton,
+        timetable: DateTime.parse("2019-11-21 00:00:00"))
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        toolbarHeight: 72,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
-            Text(
-              "Crie suas refeições",
-              style: TextStyle(
-                color: Color(0xFFEE0F55),
-                letterSpacing: 1.5,
-              ),
-            ),
-            Icon(Icons.dehaze, color: Color(0xFFEE0F55)),
-          ],
-        ),
-      ),
-      body: const MealsGrid(),
+      appBar: AppBarCustom("Crie suas refeições"),
+      body: MealsGrid(meals),
       bottomNavigationBar: Container(
-        height: 53,
+        height: 52,
         color: const Color(0xFFF1F1F1),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              "Continuar para gerar o cardápio",
-              style: TextStyle(
-                  fontSize: 18, color: Color(0xFFEE0F55), letterSpacing: 1.5),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 10),
-              child: const Icon(
-                Icons.arrow_forward,
-                color: Color(0xFFEE0F55),
+        child: GestureDetector(
+          onTap: () {
+            UserService.getInstance()?.createUserMeals(meals: meals);
+            Navigator.push(
+              context,
+              EnterExitRoute(exitPage: widget, enterPage: Quiz()),
+            );
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "Continuar para gerar o cardápio",
+                style: TextStyle(
+                    fontSize: 18, color: Color(0xFFEE0F55), letterSpacing: 1.5),
               ),
-            ),
-          ],
+              Container(
+                margin: const EdgeInsets.only(left: 10),
+                child: const Icon(
+                  Icons.arrow_forward,
+                  color: Color(0xFFEE0F55),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
