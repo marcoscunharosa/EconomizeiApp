@@ -1,4 +1,4 @@
-enum UnityType{
+enum UnityType {
   xicara,
   colherSopa,
   unidade,
@@ -12,4 +12,8 @@ enum UnityType{
   kilograma,
   copo,
   quantidade,
+  aGosto,
+  pitada,
+  colherCha,
+  colherCafe,
 }

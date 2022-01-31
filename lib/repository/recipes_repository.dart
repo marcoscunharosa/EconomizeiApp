@@ -519,7 +519,7 @@ class RecipesRepository {
         "ingredients": [
           {
             "quantity": 3,
-            "unity": "",
+            "unity": "unidade",
             "product": "peito-frango",
             "description": "picado em cubos"
           },
@@ -530,14 +530,14 @@ class RecipesRepository {
             "description": "picado"
           },
           {
-            "quantity": "",
-            "unity": "",
+            "quantity": 1,
+            "unity": "aGosto",
             "product": "sal",
             "description": "a gosto"
           },
           {
-            "quantity": "",
-            "unity": "",
+            "quantity": 1,
+            "unity": "aGosto",
             "product": "pimenta",
             "description": "a gosto"
           },
@@ -549,7 +549,7 @@ class RecipesRepository {
           },
           {
             "quantity": 1,
-            "unity": "colher",
+            "unity": "colherSopa",
             "product": "manteiga",
             "description": ""
           },
@@ -579,7 +579,7 @@ class RecipesRepository {
           },
           {
             "quantity": 1,
-            "unity": "",
+            "unity": "aGosto",
             "product": "batata-palha",
             "description": "a gosto"
           },
@@ -592,31 +592,31 @@ class RecipesRepository {
         "ingredients": [
           {
             "quantity": 3,
-            "unity": "unidades",
+            "unity": "unidade",
             "product": "ovos",
             "description": ""
           },
           {
             "quantity": 3 / 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "açucar",
             "description": ""
           },
           {
             "quantity": 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "farinha-trigo",
             "description": ""
           },
           {
             "quantity": 1,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "achocolatado",
             "description": ""
           },
           {
             "quantity": 1 / 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "oleo",
             "description": ""
           },
@@ -634,7 +634,7 @@ class RecipesRepository {
           },
           {
             "quantity": 1,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "agua",
             "description": "quente"
           },
@@ -646,7 +646,7 @@ class RecipesRepository {
           },
           {
             "quantity": 1 / 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "achocolatado",
             "description": "cobertura"
           },
@@ -658,7 +658,7 @@ class RecipesRepository {
           },
           {
             "quantity": 1 / 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "açucar",
             "description": "cobertura"
           },
@@ -671,13 +671,13 @@ class RecipesRepository {
         "ingredients": [
           {
             "quantity": 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "feijao",
             "description": ""
           },
           {
             "quantity": 4,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "agua",
             "description": ""
           },
@@ -690,19 +690,19 @@ class RecipesRepository {
         "ingredients": [
           {
             "quantity": 1,
-            "unity": "kg",
+            "unity": "kilograma",
             "product": "batata",
             "description": ""
           },
           {
             "quantity": 1 / 2,
-            "unity": "kg",
+            "unity": "kilograma",
             "product": "carne-moida",
             "description": ""
           },
           {
             "quantity": 200,
-            "unity": "gramas",
+            "unity": "grama",
             "product": "queijo-mussarela",
             "description": ""
           },
@@ -726,19 +726,19 @@ class RecipesRepository {
           },
           {
             "quantity": 1,
-            "unity": "",
+            "unity": "aGosto",
             "product": "sal",
             "description": "a gosto"
           },
           {
             "quantity": 1,
-            "unity": "",
+            "unity": "aGosto",
             "product": "pimenta-branca",
             "description": "a gosto"
           },
           {
             "quantity": 1,
-            "unity": "",
+            "unity": "aGosto",
             "product": "cheiro-verde",
             "description": "a gosto"
           },
@@ -750,7 +750,7 @@ class RecipesRepository {
           },
           {
             "quantity": 2,
-            "unity": "colheres",
+            "unity": "colherSopa",
             "product": "manteiga",
             "description": ""
           },
@@ -763,25 +763,25 @@ class RecipesRepository {
         "ingredients": [
           {
             "quantity": 200,
-            "unity": "gramas",
+            "unity": "grama",
             "product": "manteiga-sem-sal",
             "description": ""
           },
           {
             "quantity": 1 / 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "açucar",
             "description": ""
           },
           {
             "quantity": 1 / 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "açucar-mascavo",
             "description": ""
           },
           {
             "quantity": 2,
-            "unity": "unidades",
+            "unity": "unidade",
             "product": "ovos",
             "description": ""
           },
@@ -793,7 +793,7 @@ class RecipesRepository {
           },
           {
             "quantity": 5 / 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "farinha-trigo",
             "description": ""
           },
@@ -817,7 +817,7 @@ class RecipesRepository {
           },
           {
             "quantity": 3 / 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "chocolate-meio-amargo",
             "description": "picado em cubos pequenos"
           },
@@ -830,19 +830,19 @@ class RecipesRepository {
         "ingredients": [
           {
             "quantity": 500,
-            "unity": "gramas",
+            "unity": "grama",
             "product": "carne-moida",
             "description": ""
           },
           {
             "quantity": 1 / 2,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "cebola",
             "description": "picada"
           },
           {
             "quantity": 1,
-            "unity": "xicaraCha",
+            "unity": "xicara",
             "product": "leite",
             "description": ""
           },
@@ -866,7 +866,7 @@ class RecipesRepository {
           },
           {
             "quantity": 1,
-            "unity": "",
+            "unity": "aGosto",
             "product": "sal",
             "description": "a gosto"
           }
@@ -891,7 +891,7 @@ class RecipesRepository {
           },
           {
             "quantity": 2,
-            "unity": "colhereSopa",
+            "unity": "colherSopa",
             "product": "cheiro-verde",
             "description": ""
           },
@@ -903,13 +903,13 @@ class RecipesRepository {
           },
           {
             "quantity": 4,
-            "unity": "dentes",
+            "unity": "dente",
             "product": "alho",
             "description": ""
           },
           {
             "quantity": 200,
-            "unity": "gramas",
+            "unity": "grama",
             "product": "grao-de-bico",
             "description": "a gosto"
           },
@@ -921,7 +921,7 @@ class RecipesRepository {
           },
           {
             "quantity": 1,
-            "unity": "",
+            "unity": "aGosto",
             "product": "sal",
             "description": "a gosto"
           }
@@ -941,7 +941,7 @@ class RecipesRepository {
           {"quantity": 1, "unity": "fio", "product": "oleo", "description": ""},
           {
             "quantity": 2,
-            "unity": "unidades",
+            "unity": "unidade",
             "product": "linguica-calabresa",
             "description": ""
           }
@@ -954,7 +954,7 @@ class RecipesRepository {
         "ingredients": [
           {
             "quantity": 150,
-            "unity": "gramas",
+            "unity": "grama",
             "product": "peito-frango",
             "description": "cortado em filet"
           },
@@ -966,13 +966,13 @@ class RecipesRepository {
           },
           {
             "quantity": 1,
-            "unity": "",
+            "unity": "aGosto",
             "product": "alho",
             "description": "a gosto"
           },
           {
             "quantity": 1,
-            "unity": "",
+            "unity": "aGosto",
             "product": "sal",
             "description": "a gosto"
           }
@@ -991,7 +991,7 @@ class RecipesRepository {
           },
           {
             "quantity": 1,
-            "unity": "",
+            "unity": "aGosto",
             "product": "manteiga",
             "description": "a gosto"
           }
