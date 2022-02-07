@@ -4,7 +4,7 @@ import './eatable.dart';
 class UserPreferences {
   List<Meal> meals;
   int? eaters = 0;
-  Map<String, List<Eatable>> eatAt = {};
+  Map<Meal, List<Eatable>> eatAt = {};
   List<Eatable> dontEat = [];
 
   UserPreferences({
@@ -19,12 +19,12 @@ class UserPreferences {
 
   void createEatAt() {
     for (var i = 0; i < meals.length; i++) {
-      eatAt[meals[i].name] = [];
+      eatAt[meals[i]] = [];
     }
   }
 
   void addEatAt(int mealIndex, List<Eatable> eatable) {
-    eatAt[meals[mealIndex].name] = eatable;
+    eatAt[meals[mealIndex]] = eatable;
   }
 
   void addDontEat(List<Eatable> eatable) {

@@ -1,5 +1,8 @@
+import 'package:economizei_app/controllers/meal_menu_constructor.dart';
+import 'package:economizei_app/models/account.dart';
 import 'package:economizei_app/models/eatable.dart';
 import 'package:economizei_app/models/recipe.dart';
+import 'package:economizei_app/models/user_preferences.dart';
 import 'package:economizei_app/repository/products_repository.dart';
 import 'package:economizei_app/screens/quiz/answers.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +15,7 @@ import '../../models/product.dart';
 class Quiz extends StatefulWidget {
   @override
   var value = 0;
-
+  final Account? userAccount = UserService.getInstance()!.userAccount;
   State<Quiz> createState() => _QuizState();
 }
 
@@ -97,6 +100,10 @@ class _QuizState extends State<Quiz> {
         saveDislikes();
       }
       if (widget.value + 1 >= UserService.getInstance()!.questions.length) {
+        widget.userAccount!.saveMealMenu();
+        MealMenuConstructor.constructAMealMenu(
+            widget.userAccount!.preferences,
+            widget.userAccount!.userMealMenu!);
         return Navigator.pop(context);
       } else {
         setState(() {
@@ -150,7 +157,10 @@ class _QuizState extends State<Quiz> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   ImageIcon(
-                    UserService.getInstance()!.questions[widget.value].icon.image,
+                    UserService.getInstance()!
+                        .questions[widget.value]
+                        .icon
+                        .image,
                     color: UserService.getInstance()!
                         .questions[widget.value]
                         .color['primary'],

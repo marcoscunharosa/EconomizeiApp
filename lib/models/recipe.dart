@@ -8,15 +8,20 @@ class Recipe extends Eatable {
   late List<Ingredient> ingredients;
 
   Recipe({required this.nameId, required this.name, required this.servings}) {
-    this.ingredients = [];
+    ingredients = [];
   }
 
   void addIngredient(Ingredient ingredient) {
-    this.ingredients.add(ingredient);
+    ingredients.add(ingredient);
   }
 
   @override
   String getName() {
     return name;
+  }
+
+  @override
+  Recipe getRecipe() {
+    return this;
   }
 }

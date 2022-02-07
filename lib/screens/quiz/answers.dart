@@ -14,6 +14,7 @@ class Answers extends StatefulWidget {
   final numberPeopleController;
   List<Eatable> selectedReportList;
   List<Eatable> selectedChoices;
+  //late DateTimeRange selectedDates;
 
   Answers({
     required this.type,
@@ -57,7 +58,7 @@ class _AnswersState extends State<Answers> {
 
   void saveDateRange() {
     if (_selectedDates != null) {
-      UserService.getInstance()!.userAccount!.setDateRange(_selectedDates);
+      UserService.getInstance()!.userAccount!.mealMenuTimeInterval = _selectedDates;
     }
   }
 
