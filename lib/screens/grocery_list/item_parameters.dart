@@ -110,9 +110,10 @@ class _ItemParametersState extends State<ItemParameters> {
                 overflow: TextOverflow.ellipsis,
               ),
               decoration: InputDecoration(
-                prefixText: "R\$",
-                hintText: widget.product.value.toStringAsFixed(2),
-                contentPadding: const EdgeInsets.symmetric(horizontal: 5),
+                //prefixText: "R\$",
+                labelText: "R\$ ${widget.product.value.toStringAsFixed(2)}",
+                //hintText: widget.product.value.toStringAsFixed(2),
+                //contentPadding: const EdgeInsets.symmetric(horizontal: 5),
                 fillColor: Colors.white,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(2.0),

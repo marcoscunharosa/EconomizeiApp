@@ -1,8 +1,11 @@
+import 'package:economizei_app/controllers/grocery_list_constructor.dart';
 import 'package:economizei_app/models/account.dart';
+import 'package:economizei_app/screens/grocery_list/grocery_list_screen.dart';
 import 'package:economizei_app/service/user_service.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/app_bar_custom.dart';
 import '../meal_menu/meal_menu_screen.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -13,13 +16,16 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   final List<NavigationSection> _children = [
-    NavigationSection("Cardápio",
-        MealMenuScreen(mealMenu: UserService.getInstance()!.userAccount!.userMealMenu!),
+    NavigationSection(
+        "Cardápio",
+        MealMenuScreen(
+            mealMenu: UserService.getInstance()!.userAccount!.userMealMenu!),
         const BottomNavigationBarItem(
           icon: Icon(Icons.menu_book),
           label: "Cardápio",
         )),
-    NavigationSection("Feed",
+    NavigationSection(
+        "Feed",
         const Center(
           child: Text("Feed"),
         ),
@@ -27,10 +33,9 @@ class _MainPageState extends State<MainPage> {
           icon: Icon(Icons.dynamic_feed),
           label: "Feed",
         )),
-    NavigationSection("Lista de compras",
-        const Center(
-          child: Text("Lista de compras"),
-        ),
+    NavigationSection(
+        "Lista de compras",
+        GroceryListScreen(),
         const BottomNavigationBarItem(
           icon: Icon(Icons.local_grocery_store),
           label: "Lista de compras",

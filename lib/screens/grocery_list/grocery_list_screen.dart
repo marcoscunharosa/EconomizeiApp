@@ -75,7 +75,6 @@ class _GroceryListScreenState extends State<GroceryListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarCustom("Lista de compras"),
       body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
@@ -129,17 +128,17 @@ class _GroceryListScreenState extends State<GroceryListScreen> {
                 ],
               ),
             ),
-            const FloatingActionButton(
-              backgroundColor: Colors.white,
-              onPressed: null,
-              disabledElevation: 0,
-              child: Icon(
-                Icons.check_rounded,
-                color: Color(0xFF32CD32),
-                size: 52,
-              ),
-            ),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        onPressed: null,
+        disabledElevation: 0,
+        child: Icon(
+          Icons.check_rounded,
+          color: Color(0xFF32CD32),
+          size: 52,
         ),
       ),
     );
