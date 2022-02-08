@@ -1,7 +1,7 @@
-import 'package:economizei_app/models/eatable.dart';
+import 'package:economizei_app/models/chosable_item.dart';
 import 'package:economizei_app/models/ingredient.dart';
 
-class Recipe extends Eatable {
+class Recipe implements ChosableItem{
   final String nameId;
   String name;
   int servings;
@@ -23,5 +23,9 @@ class Recipe extends Eatable {
   @override
   Recipe getRecipe() {
     return this;
+  }
+  @override
+  void choose(List<ChosableItem> list){
+    list.add(this);
   }
 }

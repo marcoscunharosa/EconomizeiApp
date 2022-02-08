@@ -63,12 +63,13 @@ class UserService {
   void createQuestionMeal(Meal meal) {
     questions.add(QuizClass(
       icon: ImageIcon(
-        const AssetImage('assets/images/coffeeicon.png'),
+        meal.type.icon,
         color: meal.type.color['primary'],
         size: 96,
       ),
       color: meal.type.color,
       question: "O que você(s) costuma(m) comer na refeição ${meal.name}?",
+      meal: meal.type,
     ));
   }
 

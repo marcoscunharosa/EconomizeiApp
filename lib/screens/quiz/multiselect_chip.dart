@@ -1,13 +1,14 @@
+import 'package:economizei_app/models/chosable_item.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/eatable.dart';
+import '../../models/recipe.dart';
 import '../../service/user_service.dart';
 
 class MultiSelectChip extends StatefulWidget {
-  final List<Eatable> reportList;
-  List<Eatable> selectedChoices;
+  final List<ChosableItem> reportList;
+  List<ChosableItem> selectedChoices;
   int type;
-  final Function(List<Eatable>) onSelectionChanged;
+  final Function(List<ChosableItem>) onSelectionChanged;
 
   MultiSelectChip(
       this.reportList, this.selectedChoices, this.type, this.onSelectionChanged);

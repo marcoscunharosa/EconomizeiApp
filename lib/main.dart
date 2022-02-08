@@ -4,6 +4,8 @@ import 'screens/create_your_meals/create_your_meals.dart';
 import 'screens/quiz/quiz.dart';
 import 'service/user_service.dart';
 import 'repository/products_repository.dart';
+import 'screens/main_screen/main_page.dart';
+import 'screens/main_screen/main_page.dart';
 
 void main() {
   var userService = UserService.getInstance();
@@ -28,8 +30,10 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
+          //'/': (context) => const MainPage(),
           '/': (context) => const CreateYourMeals(),
-          '/quiz': (context) => Quiz(),
+          '/mainPage': (context) => const MainPage()
+          //'/quiz': (context) => Quiz(),
         });
   }
 }

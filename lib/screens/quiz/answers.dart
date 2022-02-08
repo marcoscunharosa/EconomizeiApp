@@ -1,9 +1,11 @@
+import 'package:economizei_app/models/chosable_item.dart';
+import 'package:economizei_app/models/quiz_class.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../service/user_service.dart';
 import './multiselect_chip.dart';
-import '../../models/eatable.dart';
+import '../../models/recipe.dart';
 import '../../repository/products_repository.dart';
 import '../../repository/recipes_repository.dart';
 
@@ -12,8 +14,9 @@ class Answers extends StatefulWidget {
   Function setInformation;
   Function clearInformation;
   final numberPeopleController;
-  List<Eatable> selectedReportList;
-  List<Eatable> selectedChoices;
+  List<ChosableItem> selectedReportList;
+  List<ChosableItem> selectedChoices;
+  QuizClass quizClass;
   //late DateTimeRange selectedDates;
 
   Answers({
@@ -23,6 +26,7 @@ class Answers extends StatefulWidget {
     required this.numberPeopleController,
     required this.selectedReportList,
     required this.selectedChoices,
+    required this.quizClass,
   });
 
   @override
@@ -63,12 +67,18 @@ class _AnswersState extends State<Answers> {
   }
 
   Widget eatableSelection() {
-    List<Eatable> eatable = [];
-    eatable.addAll(ProductsRepository.getRepository()!.allProducts);
-    eatable.addAll(RecipesRepository.getRepository()!.allRecipes);
+    List<ChosableItem> recipes = [];
+    if(widget.quizClass.meal == null){
+      recipes.addAll(ProductsRepository.getRepository()!.allProducts);
+    }
+    else{
+      recipes.addAll(RecipesRepository.getRepository()!.getRecipesLikelyMeals(widget.quizClass.meal!));
+    }
+    
+
     return ListView(children: [
       MultiSelectChip(
-        eatable,
+        recipes,
         widget.selectedChoices,
         widget.type,
         (selectedList) {

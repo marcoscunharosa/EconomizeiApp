@@ -11,5 +11,6 @@ enum ProductType{
   molhos,
   temperos,
   massas,
-  doces
+  doces,
+  congelados
 }

@@ -41,7 +41,7 @@ class QuizBody extends StatelessWidget {
                           ),
                         )),
                   ),
-                  answerType(),
+                  answerType(UserService.getInstance()!.questions[page]),
                 ],
               ),
             ),

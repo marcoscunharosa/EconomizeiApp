@@ -1,16 +1,14 @@
-import 'package:economizei_app/models/eatable.dart';
 import 'package:economizei_app/models/recipe.dart';
 
 import './product_type.dart';
-class Product extends Eatable{
+import 'chosable_item.dart';
+
+class Product implements ChosableItem{
   final String nameId;
   final String name;
   final ProductType productType;
-  late Recipe recipe;
 
-  Product({required this.nameId, required this.name, required this.productType}){
-    recipe = Recipe(name: name, nameId: nameId + "_product", servings: 1);
-  }
+  Product({required this.nameId, required this.name, required this.productType});
 
   @override
   String getName() {
@@ -18,7 +16,7 @@ class Product extends Eatable{
   }
 
   @override
-  Recipe getRecipe(){
-    return recipe;
+  void choose(List<ChosableItem> list){
+    list.add(this);
   }
 }

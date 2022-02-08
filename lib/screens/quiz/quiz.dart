@@ -1,9 +1,12 @@
 import 'package:economizei_app/controllers/meal_menu_constructor.dart';
 import 'package:economizei_app/models/account.dart';
-import 'package:economizei_app/models/eatable.dart';
+import 'package:economizei_app/models/chosable_item.dart';
+import 'package:economizei_app/models/quiz_class.dart';
+
 import 'package:economizei_app/models/recipe.dart';
 import 'package:economizei_app/models/user_preferences.dart';
 import 'package:economizei_app/repository/products_repository.dart';
+import 'package:economizei_app/repository/recipes_repository.dart';
 import 'package:economizei_app/screens/quiz/answers.dart';
 import 'package:flutter/material.dart';
 
@@ -29,8 +32,8 @@ class _QuizState extends State<Quiz> {
   int selected = 0;
   List<Product> products = [];
   List<Recipe> recipes = [];
-  List<Eatable> selectedReportList = [];
-  List<Eatable> selectedChoices = [];
+  List<ChosableItem> selectedReportList = [];
+  List<ChosableItem> selectedChoices = [];
 
   void setInformation() {
     setState(() {
@@ -75,17 +78,25 @@ class _QuizState extends State<Quiz> {
   }
 
   void saveLikes() {
+    List<Recipe> recipes = [];
+    for(ChosableItem item in selectedChoices){
+      item.choose(recipes);
+    }
     UserService.getInstance()!
         .userAccount!
         .preferences
-        .addEatAt(widget.value - 1, selectedChoices);
+        .addEatAt(widget.value - 1, recipes);
   }
 
   void saveDislikes() {
+    List<Product> products = [];
+    for(ChosableItem item in selectedChoices){
+      item.choose(products);
+    }
     UserService.getInstance()!
         .userAccount!
         .preferences
-        .addDontEat(selectedChoices);
+        .addDontEat(products);
   }
 
   void next() {
@@ -104,7 +115,7 @@ class _QuizState extends State<Quiz> {
         MealMenuConstructor.constructAMealMenu(
             widget.userAccount!.preferences,
             widget.userAccount!.userMealMenu!);
-        return Navigator.pop(context);
+        Navigator.pushReplacementNamed(context, "/mainPage");
       } else {
         setState(() {
           navigationQuizColor[widget.value] = const Color(0xFF959595);
@@ -130,7 +141,7 @@ class _QuizState extends State<Quiz> {
     });
   }
 
-  Widget answerType() {
+  Widget answerType(QuizClass quizClass) {
     return Answers(
       type: widget.value,
       setInformation: setInformation,
@@ -138,62 +149,63 @@ class _QuizState extends State<Quiz> {
       numberPeopleController: numberPeopleController,
       selectedReportList: selectedReportList,
       selectedChoices: selectedChoices,
+      quizClass: quizClass,
     );
   }
 
-  Widget quizBody() {
-    return Container(
-      color: Colors.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: double.infinity,
-            child: Card(
-              elevation: 0,
-              color: Colors.white,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ImageIcon(
-                    UserService.getInstance()!
-                        .questions[widget.value]
-                        .icon
-                        .image,
-                    color: UserService.getInstance()!
-                        .questions[widget.value]
-                        .color['primary'],
-                    size: 144,
-                  ),
-                  Container(
-                    width: 276,
-                    child: Card(
-                        color: Colors.transparent,
-                        elevation: 0,
-                        margin: EdgeInsets.only(
-                          top: 32,
-                          bottom: 16,
-                        ),
-                        child: Text(
-                          UserService.getInstance()!
-                              .questions[widget.value]
-                              .question,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontFamily: "Roboto",
-                          ),
-                        )),
-                  ),
-                  answerType(),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
-    );
-  }
+  // Widget quizBody() {
+  //   return Container(
+  //     color: Colors.white,
+  //     child: Column(
+  //       mainAxisAlignment: MainAxisAlignment.center,
+  //       children: [
+  //         SizedBox(
+  //           width: double.infinity,
+  //           child: Card(
+  //             elevation: 0,
+  //             color: Colors.white,
+  //             child: Column(
+  //               mainAxisAlignment: MainAxisAlignment.center,
+  //               crossAxisAlignment: CrossAxisAlignment.center,
+  //               children: [
+  //                 ImageIcon(
+  //                   UserService.getInstance()!
+  //                       .questions[widget.value]
+  //                       .icon
+  //                       .image,
+  //                   color: UserService.getInstance()!
+  //                       .questions[widget.value]
+  //                       .color['primary'],
+  //                   size: 144,
+  //                 ),
+  //                 Container(
+  //                   width: 276,
+  //                   child: Card(
+  //                       color: Colors.transparent,
+  //                       elevation: 0,
+  //                       margin: EdgeInsets.only(
+  //                         top: 32,
+  //                         bottom: 16,
+  //                       ),
+  //                       child: Text(
+  //                         UserService.getInstance()!
+  //                             .questions[widget.value]
+  //                             .question,
+  //                         style: TextStyle(
+  //                           fontSize: 20,
+  //                           fontFamily: "Roboto",
+  //                         ),
+  //                       )),
+  //                 ),
+  //                 answerType(),
+  //               ],
+  //             ),
+  //           ),
+  //         )
+  //       ],
+  //     ),
+  //   );
+  // }
 
   @override
   Widget navigationBar() {

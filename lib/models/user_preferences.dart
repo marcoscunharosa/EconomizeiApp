@@ -1,11 +1,12 @@
 import './meal.dart';
-import './eatable.dart';
+import './recipe.dart';
+import './product.dart';
 
 class UserPreferences {
   List<Meal> meals;
   int? eaters = 0;
-  Map<Meal, List<Eatable>> eatAt = {};
-  List<Eatable> dontEat = [];
+  Map<Meal, List<Recipe>> eatAt = {};
+  List<Product> dontEat = [];
 
   UserPreferences({
     required this.meals,
@@ -23,11 +24,11 @@ class UserPreferences {
     }
   }
 
-  void addEatAt(int mealIndex, List<Eatable> eatable) {
+  void addEatAt(int mealIndex, List<Recipe> eatable) {
     eatAt[meals[mealIndex]] = eatable;
   }
 
-  void addDontEat(List<Eatable> eatable) {
-    dontEat = eatable;
+  void addDontEat(List<Product> products) {
+    dontEat = products;
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:economizei_app/models/eatable.dart';
+import 'package:economizei_app/models/recipe.dart';
 import 'package:economizei_app/models/food.dart';
 import 'package:economizei_app/models/foods_per_day.dart';
 import 'package:economizei_app/models/meal.dart';
@@ -21,18 +21,18 @@ class MealMenuConstructor{
   }
 
   static FoodsPerDay _createFoodsPerDay(DateTime day, UserPreferences userPreferences){
-    Map<Meal, List<Eatable>> mapOfRecipes = userPreferences.eatAt;
+    Map<Meal, List<Recipe>> mapOfRecipes = userPreferences.eatAt;
     List<Food> foodList = [];
     var random = Random();
     for(var meal in mapOfRecipes.keys){
-      Eatable eatable = mapOfRecipes[meal]![random.nextInt(mapOfRecipes[meal]!.length)];
-      foodList.add(_createFood(eatable, meal));
+      Recipe recipe = mapOfRecipes[meal]![random.nextInt(mapOfRecipes[meal]!.length)];
+      foodList.add(_createFood(recipe, meal));
     }
     return FoodsPerDay(day: day, foodList: foodList);
   }
 
-  static Food _createFood(Eatable eatable, Meal meal){
-    return Food(recipe: eatable.getRecipe(), meal: meal);
+  static Food _createFood(Recipe recipe, Meal meal){
+    return Food(recipe: recipe, meal: meal);
   }
 
   static List<DateTime> _getDaysInBetween(DateTime startDate, DateTime endDate){
