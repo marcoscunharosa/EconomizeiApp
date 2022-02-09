@@ -72,7 +72,25 @@ class _GroceryListScreenState extends State<GroceryListScreen> {
   //   ),
   // ];
 
-  List<Product> addItems = [];
+  List<Product> addItems1 = [];
+  void addSelectItems(List<Product> addItems) {
+    setState(() {
+      items.add(
+        ProductCategoryList(
+          category: addItems.last.productType,
+          products: [
+            ProductShop(
+              product: addItems[addItems.length - 1],
+              amount: 1,
+              get: false,
+              meals: [],
+              unit: UnitType.unidade,
+            )
+          ],
+        ),
+      );
+    });
+  }
 
   double totalValue = 0;
   double getPrice() {
@@ -102,7 +120,8 @@ class _GroceryListScreenState extends State<GroceryListScreen> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => SearchBar(
-                      selected: addItems,
+                      selected: addItems1,
+                      addItem: addSelectItems,
                     ),
                   ),
                 );
