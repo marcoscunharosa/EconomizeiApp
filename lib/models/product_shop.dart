@@ -1,12 +1,12 @@
-import './amount_type.dart';
+import 'unit_type.dart';
 import './meal_type.dart';
 import './product.dart';
 
 class ProductShop {
   Product product;
   bool get;
-  int amount;
-  AmountType unit;
+  double amount;
+  UnitType unit;
   List<MealType> meals;
   double value = 0;
 

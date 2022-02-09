@@ -1,4 +1,4 @@
-import '../../models/amount_type.dart';
+import '../../models/unit_type.dart';
 import '../../models/product_shop.dart';
 import 'package:flutter/material.dart';
 
@@ -73,17 +73,17 @@ class _ItemParametersState extends State<ItemParameters> {
                   ),
                   onChanged: (String? newValue) {
                     setState(() {
-                      if (newValue == AmountType.grama.title) {
-                        widget.product.unit = AmountType.grama;
-                      } else if (newValue == AmountType.kilograma.title) {
-                        widget.product.unit = AmountType.kilograma;
-                      } else if (newValue == AmountType.unidade.title) {
-                        widget.product.unit = AmountType.unidade;
+                      if (newValue == UnitType.grama.title) {
+                        widget.product.unit = UnitType.grama;
+                      } else if (newValue == UnitType.kilograma.title) {
+                        widget.product.unit = UnitType.kilograma;
+                      } else if (newValue == UnitType.unidade.title) {
+                        widget.product.unit = UnitType.unidade;
                       }
                     });
                   },
-                  items: AmountType.values
-                      .map<DropdownMenuItem<String>>((AmountType value) {
+                  items: UnitType.values
+                      .map<DropdownMenuItem<String>>((UnitType value) {
                     return DropdownMenuItem<String>(
                       value: value.title.toString(),
                       child: Text(value.title.toString()),

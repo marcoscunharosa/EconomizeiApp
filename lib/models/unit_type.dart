@@ -1,17 +1,17 @@
-enum AmountType {
+enum UnitType {
   unidade,
   grama,
   kilograma,
 }
 
-extension AmountTypeExtension on AmountType {
+extension AmountTypeExtension on UnitType {
   String get title {
     switch (this) {
-      case AmountType.unidade:
+      case UnitType.unidade:
         return "un";
-      case AmountType.grama:
+      case UnitType.grama:
         return "g";
-      case AmountType.kilograma:
+      case UnitType.kilograma:
         return "Kg";
       default:
         return "null";

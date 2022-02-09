@@ -434,7 +434,7 @@ class ProductsRepository {
       {
         "name-id": "sorvete",
         "name": "Sorvete",
-        "grossery-category": ProductType.congelados,
+        "grossery-category": ProductType.doces,
          "can-consumed-alone": true
       },
       {

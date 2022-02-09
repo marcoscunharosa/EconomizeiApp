@@ -21,7 +21,7 @@ class _MealMenuScreenState extends State<MealMenuScreen> {
   }
 
   void _generateGroceryList(){
-    var groceryList = GroceryListConstructor.getProductShopByType(widget.mealMenu);
+    var groceryList = GroceryListConstructor.getProductCategoryList(widget.mealMenu);
     
   }
   @override
@@ -44,7 +44,7 @@ class _MealMenuScreenState extends State<MealMenuScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-          onPressed: _generateGroceryList,
+          onPressed: (){},//_generateGroceryList,
           backgroundColor: const Color(0xFFEE0F55),
           child: const Icon(Icons.local_grocery_store)),
     );
