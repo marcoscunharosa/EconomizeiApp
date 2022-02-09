@@ -17,7 +17,7 @@ class _ItemParametersState extends State<ItemParameters> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 130,
+      width: 135,
       child: Row(
         children: [
           Container(
@@ -94,7 +94,7 @@ class _ItemParametersState extends State<ItemParameters> {
             ),
           ),
           Container(
-            width: 50,
+            width: 60,
             height: 30,
             child: TextFormField(
               controller: _value,
@@ -111,9 +111,11 @@ class _ItemParametersState extends State<ItemParameters> {
               ),
               decoration: InputDecoration(
                 //prefixText: "R\$",
-                labelText: "R\$ ${widget.product.value.toStringAsFixed(2)}",
-                //hintText: widget.product.value.toStringAsFixed(2),
-                //contentPadding: const EdgeInsets.symmetric(horizontal: 5),
+                labelText: "R\$",
+                hintText: widget.product.value.toStringAsFixed(2),
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                contentPadding: EdgeInsets.all(0),
+                alignLabelWithHint: true,
                 fillColor: Colors.white,
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(2.0),
