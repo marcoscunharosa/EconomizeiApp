@@ -1,14 +1,15 @@
-import 'package:economizei_app/controllers/grocery_list_constructor.dart';
-import 'package:economizei_app/screens/grocery_list/price_bottom_bar.dart';
-import 'package:economizei_app/service/user_service.dart';
+import 'package:economizei_app/models/product.dart';
+import 'package:economizei_app/models/product_shop.dart';
+import 'package:economizei_app/models/product_type.dart';
+import 'package:economizei_app/models/unit_type.dart';
 
-import '../../models/unit_type.dart';
+import '../../controllers/grocery_list_constructor.dart';
+import 'price_bottom_bar.dart';
+import 'search_bar.dart';
+import '../../service/user_service.dart';
+
 import '../../models/product_category_list.dart';
-import '../../models/meal_type.dart';
-import '../../models/product_shop.dart';
-import '../../repository/products_repository.dart';
 import '../../screens/grocery_list/grocery_categories.dart';
-import '../../widgets/app_bar_custom.dart';
 import 'package:flutter/material.dart';
 
 class GroceryListScreen extends StatefulWidget {
@@ -17,8 +18,9 @@ class GroceryListScreen extends StatefulWidget {
 }
 
 class _GroceryListScreenState extends State<GroceryListScreen> {
-  List<ProductCategoryList> items = GroceryListConstructor.getProductCategoryList(
-    UserService.getInstance()!.userAccount!.userMealMenu!);
+  List<ProductCategoryList> items =
+      GroceryListConstructor.getProductCategoryList(
+          UserService.getInstance()!.userAccount!.userMealMenu!);
   //[
   //   ProductCategoryList(
   //     category: ProductsRepository.getRepository()!.allProducts[0].productType,
@@ -70,6 +72,8 @@ class _GroceryListScreenState extends State<GroceryListScreen> {
   //   ),
   // ];
 
+  List<Product> addItems = [];
+
   double totalValue = 0;
   double getPrice() {
     return totalValue;
@@ -89,7 +93,21 @@ class _GroceryListScreenState extends State<GroceryListScreen> {
         color: Colors.white,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text("Pesquisa"),
+            centerTitle: true,
+            title: Text("Pesquisa"),
+            leading: IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SearchBar(
+                      selected: addItems,
+                    ),
+                  ),
+                );
+              },
+            ),
           ),
           body: GroceryCategories(
             items: items,
@@ -99,7 +117,7 @@ class _GroceryListScreenState extends State<GroceryListScreen> {
         ),
       ),
       floatingActionButton: Container(
-        width: 70,
+        width: 50,
         height: 70,
         child: const FloatingActionButton(
           backgroundColor: Colors.white,
