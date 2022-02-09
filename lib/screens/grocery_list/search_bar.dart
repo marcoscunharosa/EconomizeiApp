@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 
 class SearchBar extends StatefulWidget {
   List<Product> selected;
-  SearchBar({required this.selected});
+  Function addItem;
+  SearchBar({required this.selected, required this.addItem});
 
   @override
   _SearchBarState createState() => _SearchBarState();
@@ -100,8 +101,7 @@ class _SearchBarState extends State<SearchBar> {
             onTap: () {
               if (!widget.selected.contains(filteredNames[index])) {
                 widget.selected.add(filteredNames[index]);
-                setState(() {});
-                print(widget.selected[widget.selected.length - 1].name);
+                widget.addItem(widget.selected);
               }
               Navigator.pop(context);
             },
@@ -113,6 +113,7 @@ class _SearchBarState extends State<SearchBar> {
               if (!widget.selected.contains(filteredNames[index])) {
                 widget.selected.add(filteredNames[index]);
                 print(widget.selected[widget.selected.length - 1].name);
+                widget.addItem(widget.selected);
               }
               Navigator.pop(context);
             },
