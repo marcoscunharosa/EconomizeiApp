@@ -12,5 +12,6 @@ enum ProductType{
   temperos,
   massas,
   doces,
-  congelados
+  congelados,
+  outros
 }
