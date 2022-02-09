@@ -12,7 +12,8 @@ enum ProductType{
   temperos,
   massas,
   doces,
-  congelados
+  congelados,
+  outros
 }
 extension ProductTypeExtension on ProductType{
   String get name {
@@ -45,6 +46,8 @@ extension ProductTypeExtension on ProductType{
         return "Doces e Guloseimas";
       case ProductType.congelados:
         return "Congelados";
+      case ProductType.outros:
+        return "Outros";
     }
   }
 }
