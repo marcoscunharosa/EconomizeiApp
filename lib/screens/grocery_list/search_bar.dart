@@ -48,7 +48,7 @@ class _SearchBarState extends State<SearchBar> {
           contentPadding: EdgeInsets.all(5),
           filled: true,
           fillColor: Colors.white,
-          prefixIconColor: Color(0xFFEE0F55),
+          //prefixIconColor: Color(0xFFEE0F55),
           prefixIcon: Icon(Icons.search),
           hintText: 'Pesquisa...',
           enabledBorder: OutlineInputBorder(
