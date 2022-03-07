@@ -28,14 +28,11 @@ class _GroceryCategoriesState extends State<GroceryCategories> {
   void selectItem(ProductCategoryList category, ProductShop product) {
     setState(() {
       product.get = !product.get;
-      // if (product.get) {
-      //   widget.changeTotalValue(product.value);
-      //   category.totalSelected += 1;
-      // } else {
-      //   widget.changeTotalValue(-product.value);
-      //   category.totalSelected -= 1;
-      // }
-      // category.allSelected = category.totalSelected == category.products.length;
+      if (product.get) {
+        widget.changeTotalValue(product.value);
+      } else {
+        widget.changeTotalValue(-product.value);
+      }
     });
   }
 

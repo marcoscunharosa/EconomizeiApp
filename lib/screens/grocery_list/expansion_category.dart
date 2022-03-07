@@ -54,9 +54,7 @@ class _ExpasionCategoryState extends State<ExpansionCategory> {
               fontSize: 18,
             ),
           ),
-          collapsedBackgroundColor: category.isAllSelected()
-          ? const Color(0xFF0FB8EE)
-          : const Color(0xFFFFFFFF),
+          collapsedBackgroundColor: const Color(0xFFFFFFFF),
           // collapsedTextColor: category.allSelected
           //     ? const Color(0xFFFFFFFF)
           //     : const Color(0xFF0FB8EE),
