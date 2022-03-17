@@ -7,8 +7,9 @@ import '../../models/meal_type.dart';
 
 class MealsGrid extends StatefulWidget {
   List<Meal> meals;
+  Function deleteMeal, addMeal;
 
-  MealsGrid(this.meals);
+  MealsGrid(this.meals, this.deleteMeal, this.addMeal);
 
   @override
   _MealsGridState createState() => _MealsGridState();
@@ -17,24 +18,12 @@ class MealsGrid extends StatefulWidget {
 class _MealsGridState extends State<MealsGrid> {
   
 
-  void deleteMeal(meal) {
-    setState(() {
-      widget.meals.remove(meal);
-    });
-  }
+  // void deleteMeal(meal) {
+  //   setState(() {
+  //     widget.meals.remove(meal);
+  //   });
+  // }
 
-  void addNewMeal(meal) {
-    var index = widget.meals.length - 1;
-
-    setState(() {
-      if (!widget.meals.contains(meal)) {
-        widget.meals.insert(index, meal);
-        widget.meals.sort((a, b) {
-          return a.timetable.compareTo(b.timetable);
-        });
-      }
-    });
-  }
 
   void showNewMealDialog(bool isEditting, Meal? meal) async {
     return showDialog(
@@ -44,9 +33,9 @@ class _MealsGridState extends State<MealsGrid> {
               contentPadding: const EdgeInsets.all(0),
               content: NewMealDialog(
                   isEditting: isEditting,
-                  addNewMeal: addNewMeal,
+                  addNewMeal: widget.addMeal,
                   meal: meal,
-                  removeMeal: deleteMeal));
+                  removeMeal: widget.deleteMeal));
         });
   }
 

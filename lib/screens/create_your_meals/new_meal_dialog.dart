@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import '../../models/meal_type.dart';
 import '../../models/meal.dart';
 
@@ -99,6 +100,13 @@ class _NewMealDialogState extends State<NewMealDialog> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.isEditting) {
+      _nameEditingController.text = widget.meal!.name;
+      var hour = DateFormat('HH').format(widget.meal!.timetable);
+      _hoursEditingController.text = hour;
+      var minute = DateFormat('mm').format(widget.meal!.timetable);
+      _minutesEditingController.text = minute;
+    }
     return SingleChildScrollView(
       child: Container(
         color: const Color(0xFFF8F8F8),

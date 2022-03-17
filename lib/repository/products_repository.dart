@@ -17,7 +17,7 @@ class ProductsRepository {
     this._itemsTable = [
       {
         "name-id": "agua",
-         "name": "Água", 
+         "name": "Água",
          "grossery-category": ProductType.bebidas,
          "can-consumed-alone": false
       },
@@ -462,6 +462,7 @@ class ProductsRepository {
          "can-consumed-alone": true
       },
     ];
+    
     consumableAloneItems = [];
     _items = HashMap<String, Product>();
     _createRepository();
@@ -476,9 +477,8 @@ class ProductsRepository {
       var newProduct = Product(
           nameId: newProductTable['name-id']!,
           name: newProductTable['name']!,
-          productType: newProductTable['grossery-category']!
-      );
-      if(newProductTable['can-consumed-alone']){
+          productType: newProductTable['grossery-category']!);
+      if (newProductTable['can-consumed-alone']) {
         consumableAloneItems.add(newProduct);
       }
       _items[newProduct.nameId] = newProduct;

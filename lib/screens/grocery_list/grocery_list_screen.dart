@@ -18,9 +18,9 @@ class GroceryListScreen extends StatefulWidget {
 }
 
 class _GroceryListScreenState extends State<GroceryListScreen> {
-  List<ProductCategoryList> items =
-      GroceryListConstructor.getProductCategoryList(
-          UserService.getInstance()!.userAccount!.userMealMenu!);
+  List<ProductCategoryList> items = [];
+  // GroceryListConstructor.getProductCategoryList(
+  //     UserService.getInstance()!.userAccount!.userMealMenu!);
   //[
   //   ProductCategoryList(
   //     category: ProductsRepository.getRepository()!.allProducts[0].productType,
@@ -73,23 +73,64 @@ class _GroceryListScreenState extends State<GroceryListScreen> {
   // ];
 
   List<Product> addItems1 = [];
-  void addSelectItems(List<Product> addItems) {
-    setState(() {
-      items.add(
-        ProductCategoryList(
-          category: addItems.last.productType,
-          products: [
-            ProductShop(
-              product: addItems[addItems.length - 1],
-              amount: 1,
-              get: false,
-              meals: [],
-              unit: UnitType.unidade,
-            )
-          ],
-        ),
-      );
-    });
+  // void addSelectItems(List<Product> addItems) {
+  //   setState(() {
+  //     items.add(
+  //       ProductCategoryList(
+  //         category: addItems.last.productType,
+  //         products: [
+  //           ProductShop(
+  //             product: addItems[addItems.length - 1],
+  //             amount: 1,
+  //             get: false,
+  //             meals: [],
+  //             unit: UnitType.unidade,
+  //           )
+  //         ],
+  //       ),
+  //     );
+  //   });
+  // }
+  ProductCategoryList? findCategory(ProductType productType) {
+    ProductCategoryList? category = null;
+    for (ProductCategoryList element in items) {
+      if (element.category == productType) {
+        category = element;
+      }
+    }
+    return category;
+  }
+
+  void addSelectItems(Product item) {
+    var category = findCategory(item.productType);
+    if (category == null) {
+      setState(() {
+        items.add(
+          ProductCategoryList(
+            category: item.productType,
+            products: [
+              ProductShop(
+                product: item,
+                amount: 1,
+                get: false,
+                meals: [],
+                unit: UnitType.unidade,
+              )
+            ],
+          ),
+        );
+      });
+    } else {
+      setState(() {
+        category.products.add(ProductShop(
+          product: item,
+          amount: 1,
+          get: false,
+          meals: [],
+          unit: UnitType.unidade,
+        ));
+      });
+    }
   }
 
   double totalValue = 0;
@@ -106,15 +147,38 @@ class _GroceryListScreenState extends State<GroceryListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var groceryList = UserService.getInstance()!.userAccount!.groceryList;
+    if (groceryList == null) {
+      UserService.getInstance()!.userAccount!.saveGroceryList(
+          GroceryListConstructor.getProductCategoryList(
+              UserService.getInstance()!.userAccount!.userMealMenu!));
+    }
+    items = UserService.getInstance()!.userAccount!.groceryList!.categories;
+    //print("Carregando screengrocery");
     return Scaffold(
       body: Container(
         color: Colors.white,
         child: Scaffold(
           appBar: AppBar(
-            centerTitle: true,
-            title: Text("Pesquisa"),
+            backgroundColor: Colors.white,
+            elevation: 0.5,
+            title: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SearchBar(
+                      selected: addItems1,
+                      addItem: addSelectItems,
+                    ),
+                  ),
+                );
+              },
+              child: const Text("Pesquisa",
+                  style: TextStyle(fontSize: 20, color: Color(0XFFc2c2c2))),
+            ),
             leading: IconButton(
-              icon: Icon(Icons.search),
+              icon: Icon(Icons.search, color: Color(0xFF666666)),
               onPressed: () {
                 Navigator.push(
                   context,

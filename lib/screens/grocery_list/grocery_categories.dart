@@ -36,6 +36,12 @@ class _GroceryCategoriesState extends State<GroceryCategories> {
     });
   }
 
+  void deleteCategory(ProductCategoryList category) {
+    setState(() {
+      widget.items.remove(category);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -45,6 +51,7 @@ class _GroceryCategoriesState extends State<GroceryCategories> {
         return ExpansionCategory(
           category: widget.items[index],
           selectItem: selectItem,
+          deleteCategory: deleteCategory,
         );
       },
     );

@@ -5,12 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:economizei_app/models/product_type.dart';
 import 'package:economizei_app/models/meal_type.dart';
 import '../../screens/grocery_list/item_parameters.dart';
+import './custom_expansion_tile.dart';
 
 class ExpansionCategory extends StatefulWidget {
   final ProductCategoryList category;
   final Function selectItem;
+  final Function deleteCategory;
   ExpansionCategory(
-      {Key? key, required this.category, required this.selectItem})
+      {Key? key,
+      required this.category,
+      required this.selectItem,
+      required this.deleteCategory})
       : super(key: key);
 
   @override
@@ -24,37 +29,70 @@ class _ExpasionCategoryState extends State<ExpansionCategory> {
 
   void createProductWidgetList() {
     for (var product in widget.category.products) {
-      productsWidget
-          .add(ProductItemWidget(product: product, selectItem: selectProduct));
+      productsWidget.add(ProductItemWidget(
+        product: product,
+        selectItem: selectProduct,
+        deleteItem: deleteItem,
+      ));
     }
+  }
+
+  void deleteItem(ProductShop item) {
+    setState(() {
+      widget.category.products.remove(item);
+      if (widget.category.products.length == 0) {
+        widget.deleteCategory(widget.category);
+      }
+    });
   }
 
   List<ProductItemWidget> productsWidget = [];
 
-  @override
-  @protected
-  @mustCallSuper
-  // ignore: must_call_super
-  void initState() {
-    createProductWidgetList();
-  }
+  // @override
+  // @protected
+  // @mustCallSuper
+  // // ignore: must_call_super
+  // void initState() {
+  //   createProductWidgetList();
+  // }
 
   @override
   Widget build(BuildContext context) {
+    productsWidget = [];
+    createProductWidgetList();
     var category = widget.category;
     //print("to entranduuu" + category.isAllSelected().toString());
     return Column(
       children: [
-        ExpansionTile(
-          title: Text(
-            category.category.name,
-            style: const TextStyle(
-              color: Color(0xFF0FB8EE),
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
+        CustomExpansionTile(
+          title: Row(
+            children: [
+              Text(
+                category.category.name,
+                style: TextStyle(
+                  color: category.isAllSelected()
+                      ? Colors.white
+                      : Color(0xFF0FB8EE),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Icon(
+                Icons.check,
+                color: category.isAllSelected()
+                    ? Colors.white
+                    : Colors.transparent,
+              )
+            ],
           ),
-          collapsedBackgroundColor: const Color(0xFFFFFFFF),
+          collapsedIconColor: Color(0xFF0FB8EE),
+          iconColor:
+              category.isAllSelected() ? Colors.white : Color(0xFF0FB8EE),
+          headerBackgroundColor:
+              category.isAllSelected() ? Color(0xFF0FB8EE) : Colors.white,
           // collapsedTextColor: category.allSelected
           //     ? const Color(0xFFFFFFFF)
           //     : const Color(0xFF0FB8EE),

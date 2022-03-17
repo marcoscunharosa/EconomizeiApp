@@ -7,7 +7,39 @@ import '../../widgets/app_bar_custom.dart';
 import '../meal_menu/meal_menu_screen.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  late MealMenuScreen mealMenuScreen;
+  late List<NavigationSection> _children;
+  MainPage({Key? key}) : super(key: key) {
+    mealMenuScreen = MealMenuScreen(
+        mealMenu: UserService.getInstance()!.userAccount!.userMealMenu!,
+        openGroceryList: () {});
+
+    _children = [
+      NavigationSection(
+          "Cardápio",
+          mealMenuScreen,
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.menu_book),
+            label: "Cardápio",
+          )),
+      NavigationSection(
+          "Feed",
+          const Center(
+            child: Text("Feed"),
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.dynamic_feed),
+            label: "Feed",
+          )),
+      NavigationSection(
+          "Lista de compras",
+          GroceryListScreen(),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.local_grocery_store),
+            label: "Lista de compras",
+          )),
+    ];
+  }
 
   @override
   _MainPageState createState() => _MainPageState();
@@ -15,35 +47,34 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
-  final List<NavigationSection> _children = [
-    NavigationSection(
-        "Cardápio",
-        MealMenuScreen(
-            mealMenu: UserService.getInstance()!.userAccount!.userMealMenu!),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.menu_book),
-          label: "Cardápio",
-        )),
-    NavigationSection(
-        "Feed",
-        const Center(
-          child: Text("Feed"),
-        ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.dynamic_feed),
-          label: "Feed",
-        )),
-    NavigationSection(
-        "Lista de compras",
-        GroceryListScreen(),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.local_grocery_store),
-          label: "Lista de compras",
-        )),
-  ];
+  // final List<NavigationSection> _children = [
+  //   NavigationSection(
+  //       "Cardápio",
+  //       widget.mealMenuScreen,
+  //       const BottomNavigationBarItem(
+  //         icon: Icon(Icons.menu_book),
+  //         label: "Cardápio",
+  //       )),
+  //   NavigationSection(
+  //       "Feed",
+  //       const Center(
+  //         child: Text("Feed"),
+  //       ),
+  //       const BottomNavigationBarItem(
+  //         icon: Icon(Icons.dynamic_feed),
+  //         label: "Feed",
+  //       )),
+  //   NavigationSection(
+  //       "Lista de compras",
+  //       GroceryListScreen(),
+  //       const BottomNavigationBarItem(
+  //         icon: Icon(Icons.local_grocery_store),
+  //         label: "Lista de compras",
+  //       )),
+  // ];
   List<BottomNavigationBarItem> _getBottomNavigationBarItems() {
     List<BottomNavigationBarItem> items = [];
-    for (NavigationSection section in _children) {
+    for (NavigationSection section in widget._children) {
       items.add(section.bottomNavigationBarItem);
     }
     return items;
@@ -55,11 +86,18 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
+  void goToGroceryListScreen() {
+    setState(() {
+      _selectedIndex = 2;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    widget.mealMenuScreen.openGroceryList = goToGroceryListScreen;
     return Scaffold(
-      appBar: AppBarCustom(_children[_selectedIndex].title),
-      body: _children[_selectedIndex].widget,
+      appBar: AppBarCustom(widget._children[_selectedIndex].title),
+      body: widget._children[_selectedIndex].widget,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         selectedItemColor: const Color(0xFFEE0F55),

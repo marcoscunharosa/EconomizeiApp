@@ -50,7 +50,10 @@ class _SearchBarState extends State<SearchBar> {
           filled: true,
           fillColor: Colors.white,
           //prefixIconColor: Color(0xFFEE0F55),
-          prefixIcon: Icon(Icons.search),
+          prefixIcon: Icon(
+            Icons.search,
+            color: Color(0xFF666666),
+          ),
           hintText: 'Pesquisa...',
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
@@ -99,10 +102,11 @@ class _SearchBarState extends State<SearchBar> {
             trailing: const Icon(Icons.shopping_cart_rounded),
             title: Text(filteredNames[index].name),
             onTap: () {
-              if (!widget.selected.contains(filteredNames[index])) {
-                widget.selected.add(filteredNames[index]);
-                widget.addItem(widget.selected);
-              }
+              // if (!widget.selected.contains(filteredNames[index])) {
+              //   widget.selected.add(filteredNames[index]);
+              //   widget.addItem(widget.selected);
+              // }
+              widget.addItem(filteredNames[index]);
               Navigator.pop(context);
             },
           );
@@ -110,11 +114,12 @@ class _SearchBarState extends State<SearchBar> {
           return ListTile(
             title: Text(filteredNames[index].name),
             onTap: () {
-              if (!widget.selected.contains(filteredNames[index])) {
-                widget.selected.add(filteredNames[index]);
-                print(widget.selected[widget.selected.length - 1].name);
-                widget.addItem(widget.selected);
-              }
+              // if (!widget.selected.contains(filteredNames[index])) {
+              //   widget.selected.add(filteredNames[index]);
+              //   print(widget.selected[widget.selected.length - 1].name);
+              //   widget.addItem(widget.selected);
+              // }
+              widget.addItem(filteredNames[index]);
               Navigator.pop(context);
             },
           );
