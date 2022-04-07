@@ -40,26 +40,28 @@ class GroceryListConstructor {
 
   static void _addIngredients(List<Food> foods) {
     for (var food in foods) {
-      var ingredients = food.recipe.ingredients;
-      for (var ingredient in ingredients) {
-        var product = ingredient.product;
-        if (_productsByType[product.productType] == null) {
-          _productsByType[product.productType] = [product];
-        } else if (!_productsByType[product.productType]!.contains(product)) {
-          _productsByType[product.productType]!.add(product);
-        }
-        if (_productShopByProduct[product] == null) {
-          _productShopByProduct[product] = ProductShop(
-              product: product,
-              get: false,
-              amount: ingredient.quantity,
-              unit: UnitType.grama,
-              meals: [food.meal.type]);
-        } else {
-          ProductShop productShop = _productShopByProduct[product]!;
-          productShop.amount += ingredient.quantity;
-          if (!productShop.meals.contains(food.meal.type)) {
-            productShop.meals.add(food.meal.type);
+      for (var platePart in food.plate.plateParts) {
+        var ingredients = platePart.recipe.ingredients;
+        for (var ingredient in ingredients) {
+          var product = ingredient.product;
+          if (_productsByType[product.productType] == null) {
+            _productsByType[product.productType] = [product];
+          } else if (!_productsByType[product.productType]!.contains(product)) {
+            _productsByType[product.productType]!.add(product);
+          }
+          if (_productShopByProduct[product] == null) {
+            _productShopByProduct[product] = ProductShop(
+                product: product,
+                get: false,
+                amount: ingredient.quantity,
+                unit: UnitType.grama,
+                meals: [food.meal.type]);
+          } else {
+            ProductShop productShop = _productShopByProduct[product]!;
+            productShop.amount += ingredient.quantity;
+            if (!productShop.meals.contains(food.meal.type)) {
+              productShop.meals.add(food.meal.type);
+            }
           }
         }
       }

@@ -23,7 +23,7 @@ class FoodItem extends StatelessWidget {
             Expanded(
               child: Container(
                 padding: const EdgeInsets.all(5),
-                child: Text(food.recipe.name,
+                child: Text(food.plate.name == null || food.plate.name == "" ?'Prato sem nome' :food.plate.name!,
                     overflow: TextOverflow.ellipsis),
               ),
             ),

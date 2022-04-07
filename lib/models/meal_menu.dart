@@ -1,10 +1,11 @@
 import 'package:economizei_app/models/foods_per_day.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class MealMenu{
   DateTime currentDay;
-  DateTimeRange timeInterval;
+  PickerDateRange timeInterval;
   List<FoodsPerDay> foodsPerDayList = [];
 
   MealMenu({

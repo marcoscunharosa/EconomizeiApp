@@ -1,88 +1,100 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/enter_exit_route.dart';
+class QuizBottomBar extends StatefulWidget {
+  final Function nextPage, previousPage;
+  const QuizBottomBar(
+      {Key? key, required this.nextPage, required this.previousPage})
+      : super(key: key);
 
-class QuizBottomBarCustom extends Container {
-  QuizBottomBarCustom({required BuildContext context, required Widget widget, required Widget newWidget})
-      : super(
-          height: 52,
-          color: Color(0xFFF1F1F1),
-          //padding: EdgeInsets.all(10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Row(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(left: 10),
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        color: Color(0xFFEE0F55),
-                      ),
-                    ),
-                    Text(
-                      "Voltar",
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Color(0xFFEE0F55),
-                          letterSpacing: 1.5),
-                    ),
-                  ],
-                ),
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.circle,
-                    size: 10,
+  @override
+  State<QuizBottomBar> createState() => QuizBottomBarState();
+}
+
+class QuizBottomBarState extends State<QuizBottomBar> {
+  bool isNextDisable = true;
+
+  void enableButton() {
+    setState(() {
+      isNextDisable = false;
+    });
+  }
+
+  void disableButton() {
+    setState(() {
+      isNextDisable = true;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 52,
+      color: const Color(0xFFF1F1F1),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+            onTap: () {
+              widget.previousPage();
+            },
+            child: Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(left: 10, right: 10),
+                  child: const Icon(
+                    Icons.arrow_back_ios,
+                    size: 18,
                     color: Color(0xFFEE0F55),
                   ),
-                  Icon(
-                    Icons.circle,
-                    size: 10,
-                    color: Color(0xFF959595),
+                ),
+                const Text(
+                  "VOLTAR",
+                  style: TextStyle(
+                      fontSize: 14, color: Color(0xFFEE0F55), letterSpacing: 1),
+                ),
+              ],
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              if (!isNextDisable) {
+                widget.nextPage();
+              }
+
+              // Navigator.push(
+              //   context,
+              //   EnterExitRoute(
+              //       exitPage: widget, enterPage: newWidget),
+              // );
+            },
+            child: Container(
+              child: Row(
+                children: [
+                  Text(
+                    "CONTINUAR",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: isNextDisable
+                            ? const Color(0xFF989898)
+                            : const Color(0xFFEE0F55),
+                        letterSpacing: 1.5),
                   ),
-                  Icon(
-                    Icons.circle,
-                    size: 10,
-                    color: Color(0xFF959595),
+                  Container(
+                    margin: const EdgeInsets.only(left: 10, right: 10),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      size: 18,
+                      color: isNextDisable
+                          ? const Color(0xFF989898)
+                          : const Color(0xFFEE0F55),
+                    ),
                   ),
                 ],
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    EnterExitRoute(
-                        exitPage: widget, enterPage: newWidget),
-                  );
-                },
-                child: Container(
-                  child: Row(
-                    children: [
-                      Text(
-                        "Continuar",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Color(0xFFEE0F55),
-                            letterSpacing: 1.5),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 10),
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Color(0xFFEE0F55),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
-        );
+        ],
+      ),
+    );
+  }
 }

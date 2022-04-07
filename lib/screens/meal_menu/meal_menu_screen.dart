@@ -6,29 +6,36 @@ import '../../service/user_service.dart';
 import 'date_list.dart';
 
 class MealMenuScreen extends StatefulWidget {
-  MealMenu mealMenu;
   Function openGroceryList;
   MealMenuScreen({
     Key? key,
-    required this.mealMenu,
     required this.openGroceryList,
   }) : super(key: key);
-
+  MealMenu get mealMenu{
+    return UserService.getInstance()!.userAccount!.userMealMenu!;
+  }
   @override
   _MealMenuScreenState createState() => _MealMenuScreenState();
 }
 
 class _MealMenuScreenState extends State<MealMenuScreen> {
   String _getDateInformation() {
-    var firstDay = DateFormat('dd').format(widget.mealMenu.timeInterval.start);
-    var lastDay = DateFormat('dd').format(widget.mealMenu.timeInterval.end);
-    var month = DateFormat('MMM').format(widget.mealMenu.timeInterval.start);
-    return firstDay + " - " + lastDay + " " + month;
+    var firstDay = DateFormat('dd', 'pt_BR')
+        .format(widget.mealMenu.timeInterval.startDate!);
+    var lastDay =
+        DateFormat('dd', 'pt_BR').format(widget.mealMenu.timeInterval.endDate!);
+    var monthFirst = DateFormat('MMM', 'pt_BR')
+        .format(widget.mealMenu.timeInterval.startDate!);
+    var monthSecond = DateFormat('MMM', 'pt_BR')
+        .format(widget.mealMenu.timeInterval.endDate!);
+    if(widget.mealMenu.timeInterval.startDate!.month != widget.mealMenu.timeInterval.endDate!.month){
+      return firstDay + " " + monthFirst + " - " + lastDay + " " + monthSecond;
+    }
+    return firstDay + " - " + lastDay + " " + monthSecond;
   }
 
   void _generateGroceryList() {
-    var groceryList =
-        GroceryListConstructor.getProductCategoryList(widget.mealMenu);
+    var groceryList = GroceryListConstructor.getProductCategoryList(widget.mealMenu);
   }
 
   @override
@@ -47,7 +54,7 @@ class _MealMenuScreenState extends State<MealMenuScreen> {
               ),
             ),
           ),
-          DateMealsList(foodsPerDayList: widget.mealMenu.foodsPerDayList),
+          DateMealsList(),
         ],
       ),
       floatingActionButton: FloatingActionButton(

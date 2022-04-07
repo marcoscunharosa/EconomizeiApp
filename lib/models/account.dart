@@ -1,6 +1,7 @@
 import 'package:economizei_app/models/grocery_list.dart';
 import 'package:economizei_app/models/meal_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import './user_preferences.dart';
 
@@ -13,7 +14,8 @@ class Account {
   UserPreferences preferences;
   MealMenu? userMealMenu;
   GroceryList? groceryList;
-  DateTimeRange? mealMenuTimeInterval;
+  PickerDateRange? mealMenuTimeInterval;
+  String? height, weight, sex, age, dietaryPreferences, pyshicsActivityLevel;
 
   Account({
     required this.username,
@@ -24,6 +26,23 @@ class Account {
   void saveMealMenu() {
     userMealMenu = MealMenu(
         currentDay: DateTime.now(), timeInterval: mealMenuTimeInterval!);
+  }
+
+  bool areInformationsSaved() {
+    List<String?> informations = [
+      height,
+      weight,
+      sex,
+      age,
+      dietaryPreferences,
+      pyshicsActivityLevel
+    ];
+    for (var info in informations) {
+      if (info == null) {
+        return false;
+      }
+    }
+    return true;
   }
 
   void saveGroceryList(List<ProductCategoryList> listOfProducts) {

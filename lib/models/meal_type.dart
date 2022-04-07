@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum MealType { breakfast, lunch, betweenMeals, dinner, addButton }
+enum MealType { breakfast, lunch, betweenMeals, dinner}
 
 extension MealTypeExtension on MealType {
   String get title {
@@ -13,8 +13,6 @@ extension MealTypeExtension on MealType {
         return "Entre refeições";
       case MealType.dinner:
         return "Janta";
-      default:
-        return "null";
     }
   }
 

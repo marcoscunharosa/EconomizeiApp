@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import '../../models/meal_type.dart';
 import '../../models/meal.dart';
+import '../../widgets/confirmation_dialog.dart';
 
 class NewMealDialog extends StatefulWidget {
   final bool isEditting;
@@ -30,6 +31,30 @@ class _NewMealDialogState extends State<NewMealDialog> {
   var _validateHour = false;
   var _validateMinute = false;
   var _validateName = false;
+
+  void showConfirmationDialog() async {
+    return showDialog(
+        context: context,
+        builder: (BuildContext ct) {
+          return ConfirmationDialog(
+            title: 'Apagar refeição',
+            buttonActions: [
+              ButtonActions(
+                  title: 'Não apagar', action: () => Navigator.pop(ct)),
+              ButtonActions(
+                  title: 'Sim, apagar refeição e pratos', action: () {
+                    Navigator.pop(context);
+                    widget.removeMeal(widget.meal);
+                  }),
+              ButtonActions(title: 'Sim, apagar apenas refeição', action: () {
+                Navigator.pop(context);
+                widget.removeMeal(widget.meal);
+              })
+            ],
+            alertText: "Você tem certeza que quer apagar essa refeição?",
+          );
+        });
+  }
 
   void updateMeal() {
     if (!_validateInputs()) {
@@ -106,6 +131,7 @@ class _NewMealDialogState extends State<NewMealDialog> {
       _hoursEditingController.text = hour;
       var minute = DateFormat('mm').format(widget.meal!.timetable);
       _minutesEditingController.text = minute;
+      _mealTypeChosen = widget.meal!.type;
     }
     return SingleChildScrollView(
       child: Container(
@@ -348,8 +374,9 @@ class _NewMealDialogState extends State<NewMealDialog> {
                   widget.isEditting
                       ? IconButton(
                           onPressed: () {
-                            widget.removeMeal(widget.meal);
-                            Navigator.pop(context);
+                            showConfirmationDialog();
+                            // Navigator.pop(context);
+                            // widget.removeMeal(widget.meal);
                           },
                           icon: const Icon(
                             Icons.delete,

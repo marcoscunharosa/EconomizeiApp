@@ -73,43 +73,11 @@ class RecipesRepository {
         ]
       },
       {
-        "name-id": "maca",
-        "name": "Maçã",
-        "servings": 1,
-        "meals-likely": [MealType.breakfast, MealType.betweenMeals],
-        "ingredients": [
-          {
-            "quantity": 100,
-            "unity": UnityType.fatia,
-            "product": "maca",
-            "description": ""
-          },
-        ]
-      },
-      {
-        "name-id": "arroz-com-carne-bonina",
-        "name": "Arroz com carne",
+        "name-id": "bife",
+        "name": "Bife",
         "meals-likely": [MealType.dinner, MealType.lunch],
-        "servings": 3,
+        "servings": 1,
         "ingredients": [
-          {
-            "quantity": 1,
-            "unity": UnityType.xicara,
-            "product": "arroz",
-            "description": ""
-          },
-          {
-            "quantity": 2,
-            "unity": UnityType.xicara,
-            "product": "agua",
-            "description": ""
-          },
-          {
-            "quantity": 2,
-            "unity": UnityType.dente,
-            "product": "alho",
-            "description": ""
-          },
            {
             "quantity": 150,
             "unity": UnityType.grama,
@@ -122,7 +90,52 @@ class RecipesRepository {
             "product": "azeite",
             "description": ""
           },
-          {"quantity": 1, "unity": UnityType.fio, "product": "oleo", "description": ""},
+        ]
+      },
+      {
+        "name-id": "file-de-frango",
+        "name": "Filé de frango",
+        "meals-likely": [MealType.dinner, MealType.lunch],
+        "servings": 1,
+        "ingredients": [
+           {
+            "quantity": 150,
+            "unity": UnityType.grama,
+            "product": "peito-frango",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": UnityType.fio,
+            "product": "azeite",
+            "description": ""
+          },
+        ]
+      },
+      {
+        "name-id": "salada-tradicional",
+        "name": "Salada tradicional",
+        "meals-likely": [MealType.dinner, MealType.lunch],
+        "servings": 1,
+        "ingredients": [
+           {
+            "quantity": 3,
+            "unity": UnityType.folha,
+            "product": "alface",
+            "description": ""
+          },
+          {
+            "quantity": 4,
+            "unity": UnityType.rodela,
+            "product": "tomate",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": UnityType.fio,
+            "product": "azeite",
+            "description": ""
+          },
         ]
       },
       {
@@ -626,7 +639,84 @@ class RecipesRepository {
             "description": ""
           },
         ]
-      }
+      },
+      {
+        "name-id": "arroz-branco",
+        "name": "Arroz branco",
+        "servings": 4,
+        "meals-likely": [MealType.lunch, MealType.dinner],
+        "ingredients": [
+          {
+            "quantity": 2,
+            "unity": UnityType.dente,
+            "product": "alho",
+            "description": "picados"
+          },
+          {
+            "quantity": 1,
+            "unity": UnityType.copo,
+            "product": "arroz",
+            "description": ""
+          },
+          {
+            "quantity": 2,
+            "unity": UnityType.copo,
+            "product": "agua",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": UnityType.fio,
+            "product": "oleo",
+            "description": ""
+          },
+        ]
+      },
+      {
+        "name-id": "feijao",
+        "name": "Feijão",
+        "servings": 4,
+        "meals-likely": [MealType.lunch, MealType.dinner],
+        "ingredients": [
+          {
+            "quantity": 1,
+            "unity": UnityType.xicara,
+            "product": "feijao",
+            "description": ""
+          },
+          {
+            "quantity": 4,
+            "unity": UnityType.xicara,
+            "product": "agua",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": UnityType.pitada,
+            "product": "sal",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": UnityType.unidade,
+            "product": "folha-de-louro",
+            "description": ""
+          },
+          {
+            "quantity": 1,
+            "unity": UnityType.colherSopa,
+            "product": "oleo",
+            "description": ""
+          },
+          {
+            "quantity": 2,
+            "unity": UnityType.dente,
+            "product": "alho",
+            "description": "amassados"
+          },
+        ]
+      },
+      
     ];
     _recipesLikelyMeals = HashMap<MealType, List<Recipe>>();
     _createIngredientsRecipe();

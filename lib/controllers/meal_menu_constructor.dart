@@ -8,39 +8,44 @@ import 'package:economizei_app/models/meal_menu.dart';
 import 'package:economizei_app/models/user_preferences.dart';
 import 'package:economizei_app/service/user_service.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-class MealMenuConstructor{
+import '../models/plate.dart';
 
-  static void constructAMealMenu(UserPreferences userPreferences, MealMenu mealMenu){
-    DateTimeRange timeInterval = mealMenu.timeInterval;
-    List<DateTime> days = _getDaysInBetween(timeInterval.start, timeInterval.end);
-    for(int i = 0; i < days.length; i++){
+class MealMenuConstructor {
+  static void constructAMealMenu(
+      List<Meal> userMeals, MealMenu mealMenu) {
+    PickerDateRange timeInterval = mealMenu.timeInterval;
+    List<DateTime> days =
+        _getDaysInBetween(timeInterval.startDate!, timeInterval.endDate!);
+    for (int i = 0; i < days.length; i++) {
       DateTime day = days[i];
-      mealMenu.addFoodsPerDay(_createFoodsPerDay(day, userPreferences));
+      mealMenu.addFoodsPerDay(_createFoodsPerDay(day, userMeals));
     }
   }
 
-  static FoodsPerDay _createFoodsPerDay(DateTime day, UserPreferences userPreferences){
-    Map<Meal, List<Recipe>> mapOfRecipes = userPreferences.eatAt;
+  static FoodsPerDay _createFoodsPerDay(DateTime day, List<Meal> meals) {
+    //Map<Meal, List<Recipe>> mapOfRecipes = userPreferences.eatAt;
     List<Food> foodList = [];
-    var random = Random();
-    for(var meal in mapOfRecipes.keys){
-      Recipe recipe = mapOfRecipes[meal]![random.nextInt(mapOfRecipes[meal]!.length)];
-      foodList.add(_createFood(recipe, meal));
+    //var random = Random();
+    for (var meal in meals) {
+      Plate plate = Plate(name: meal.plateTemplates[0].name);
+      plate.plateParts.addAll(meal.plateTemplates[0].plateParts);
+      foodList.add(_createFood(plate, meal));
     }
     return FoodsPerDay(day: day, foodList: foodList);
   }
 
-  static Food _createFood(Recipe recipe, Meal meal){
-    return Food(recipe: recipe, meal: meal);
+  static Food _createFood(Plate plate, Meal meal) {
+    return Food(plate: plate, meal: meal);
   }
 
-  static List<DateTime> _getDaysInBetween(DateTime startDate, DateTime endDate){
+  static List<DateTime> _getDaysInBetween(
+      DateTime startDate, DateTime endDate) {
     List<DateTime> days = [];
-    for(int i = 0; i <= endDate.difference(startDate).inDays; i++){
+    for (int i = 0; i <= endDate.difference(startDate).inDays; i++) {
       days.add(startDate.add(Duration(days: i)));
     }
     return days;
   }
-
 }

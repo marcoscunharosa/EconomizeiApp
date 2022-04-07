@@ -8,20 +8,20 @@ import '../models/user_preferences.dart';
 class UserService {
   static UserService? instance;
   Account? userAccount;
-  final List<QuizClass> questions = [
-    QuizClass(
-      icon: const ImageIcon(
-        AssetImage('assets/images/quizpeopleicon.png'),
-        color: Color(0xFF0FB8EE),
-        size: 112,
-      ),
-      color: {
-        'primary': const Color(0xFF0FB8EE),
-        'secondary': const Color(0xFFCF8F8F)
-      },
-      question: "Para quantas pessoas você está planejando este cardápio?",
-    ),
-  ];
+  // final List<QuizClass> questions = [
+  //   QuizClass(
+  //     icon: const ImageIcon(
+  //       AssetImage('assets/images/quizpeopleicon.png'),
+  //       color: Color(0xFF0FB8EE),
+  //       size: 112,
+  //     ),
+  //     color: {
+  //       'primary': const Color(0xFF0FB8EE),
+  //       'secondary': const Color(0xFFCF8F8F)
+  //     },
+  //     question: "Para quantas pessoas você está planejando este cardápio?",
+  //   ),
+  // ];
 
   static UserService? getInstance() {
     if (instance == null) {
@@ -46,59 +46,57 @@ class UserService {
   void createUserMeals({required List<Meal> meals}) {
     List<Meal> filterMeals = [];
 
-    if (questions.length > 1) {
-      questions.removeRange(1, questions.length);
-    }
+    // if (questions.length > 1) {
+    //   questions.removeRange(1, questions.length);
+    // }
 
     for (var i = 0; i < meals.length; i++) {
-      if (meals[i].type != MealType.addButton) {
-        filterMeals.add(meals[i]);
-        createQuestionMeal(meals[i]);
-      }
+      filterMeals.add(meals[i]);
+        //createQuestionMeal(meals[i]);
     }
     userAccount?.setMeals(filterMeals);
-    addOtherQuestions();
+    //addOtherQuestions();
   }
 
-  void createQuestionMeal(Meal meal) {
-    questions.add(QuizClass(
-      icon: ImageIcon(
-        meal.type.icon,
-        color: meal.type.color['primary'],
-        size: 96,
-      ),
-      color: meal.type.color,
-      question: "O que você(s) costuma(m) comer na refeição ${meal.name}?",
-      meal: meal.type,
-    ));
-  }
+  // void createQuestionMeal(Meal meal) {
+  //   questions.add(QuizClass(
+  //     icon: ImageIcon(
+  //       meal.type.icon,
+  //       color: meal.type.color['primary'],
+  //       size: 96,
+  //     ),
+  //     color: meal.type.color,
+  //     question: "O que você(s) costuma(m) comer na refeição ${meal.name}?",
+  //     meal: meal.type,
+  //   ));
+  // }
 
-  void addOtherQuestions() {
-    questions.add(QuizClass(
-      icon: const ImageIcon(
-        AssetImage('assets/images/noticon.png'),
-        color: Color(0xFF03031B),
-        size: 96,
-      ),
-      color: {
-        'primary': const Color(0xFF03031B),
-        'secondary': const Color(0xFF03031B)
-      },
-      question: "O que você(s) não gosta(m) de comer?",
-    ));
-    questions.add(QuizClass(
-      icon: const ImageIcon(
-        AssetImage('assets/images/quizpeopleicon.png'),
-        color: Color(0xFFEE0F55),
-        size: 112,
-      ),
-      color: {
-        'primary': const Color(0xFFEE0F55),
-        'secondary': Colors.white,
-      },
-      question:
-          "Selecione todos os dias para os quais você gostaria de gerar um cardápio:",
-    ));
-  }
+  // void addOtherQuestions() {
+  //   questions.add(QuizClass(
+  //     icon: const ImageIcon(
+  //       AssetImage('assets/images/noticon.png'),
+  //       color: Color(0xFF03031B),
+  //       size: 96,
+  //     ),
+  //     color: {
+  //       'primary': const Color(0xFF03031B),
+  //       'secondary': const Color(0xFF03031B)
+  //     },
+  //     question: "O que você(s) não gosta(m) de comer?",
+  //   ));
+  //   questions.add(QuizClass(
+  //     icon: const ImageIcon(
+  //       AssetImage('assets/images/quizpeopleicon.png'),
+  //       color: Color(0xFFEE0F55),
+  //       size: 112,
+  //     ),
+  //     color: {
+  //       'primary': const Color(0xFFEE0F55),
+  //       'secondary': Colors.white,
+  //     },
+  //     question:
+  //         "Selecione todos os dias para os quais você gostaria de gerar um cardápio:",
+  //   ));
+  // }
 
 }

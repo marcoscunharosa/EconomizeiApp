@@ -34,7 +34,7 @@ class _OpenDateMealsState extends State<OpenDateMeals> {
                 ),
               ),
               Text(
-                DateFormat('EEE').format(widget.foodsPerDay.day),
+                DateFormat('EEE', 'pt_BR').format(widget.foodsPerDay.day),
                 style: const TextStyle(
                   color: Color(0xFF676767),
                   fontSize: 18,

@@ -28,7 +28,7 @@ class ClosedDateMeals extends StatelessWidget {
                       style: const TextStyle(fontSize: 24),
                     ),
                     Text(
-                      DateFormat('EEE').format(foodsPerDay.day),
+                      DateFormat('EEE', 'pt_BR').format(foodsPerDay.day),
                       style: const TextStyle(
                         fontSize: 16,
                         color: Color(0xFF676767),

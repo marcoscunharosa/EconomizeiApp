@@ -1,7 +1,9 @@
 import 'package:economizei_app/repository/recipes_repository.dart';
 import 'package:economizei_app/screens/grocery_list/grocery_list_screen.dart';
+import 'package:economizei_app/screens/quiz/personal_data_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
-import 'screens/create_your_meals/create_your_meals.dart';
+import 'screens/create_your_meals/create_your_meals_quiz_page.dart';
 import 'screens/quiz/quiz.dart';
 import 'service/user_service.dart';
 import 'repository/products_repository.dart';
@@ -25,6 +27,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        localizationsDelegates: GlobalMaterialLocalizations.delegates,
+        supportedLocales: [const Locale('pt', 'BR')],
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -32,8 +36,8 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           //'/': (context) => const MainPage(),
-          '/': (context) => const CreateYourMeals(),
-          '/mainPage': (context) =>  MainPage()
+          '/': (context) => const CreateYourMealsQuizPage(),
+          '/mainPage': (context) => MainPage()
           //'/quiz': (context) => Quiz(),
         });
   }

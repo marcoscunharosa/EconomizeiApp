@@ -110,6 +110,12 @@ class ProductsRepository {
          "can-consumed-alone": true
       },
       {
+        "name-id": "folha-de-louro",
+        "name": "Folha de louro",
+        "grossery-category": ProductType.hortifruti,
+         "can-consumed-alone": false
+      },
+      {
         "name-id": "molho-tomate",
         "name": "Molho de tomate",
         "grossery-category": ProductType.enlatados,
@@ -412,6 +418,12 @@ class ProductsRepository {
         "name": "Melão",
         "grossery-category": ProductType.hortifruti,
          "can-consumed-alone": true
+      },
+      {
+        "name-id": "alface",
+        "name": "Alface",
+        "grossery-category": ProductType.hortifruti,
+         "can-consumed-alone": false
       },
       {
         "name-id": "morangos",

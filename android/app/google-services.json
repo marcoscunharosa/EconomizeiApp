@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:842446206455:android:3d38a288b19c25bc716af2",
         "android_client_info": {
-          "package_name": "com.example.economizei_app"
+          "package_name": "br.economizei.economizei_app"
         }
       },
       "oauth_client": [

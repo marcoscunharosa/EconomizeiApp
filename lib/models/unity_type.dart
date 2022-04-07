@@ -16,4 +16,6 @@ enum UnityType {
   pitada,
   colherCha,
   colherCafe,
+  folha,
+  rodela
 }
